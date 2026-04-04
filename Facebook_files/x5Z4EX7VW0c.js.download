@@ -1,0 +1,6 @@
+;/*FB_PKG_DELIM*/
+
+__d("ClickToMessagingUpsellEventsLoggingFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("5028"),s=o("FalcoLoggerInternal").create("click_to_messaging_upsell_events_logging",e),u=s;l.default=u}),98);
+__d("ClickToWhatsAppBusinessDownloadFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("1923272"),s=o("FalcoLoggerInternal").create("click_to_whats_app_business_download",e),u=s;l.default=u}),98);
+__d("CometProfilePlusLeftNavMenuActionFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2473"),s=o("FalcoLoggerInternal").create("comet_profile_plus_left_nav_menu_action",e),u=s;l.default=u}),98);
+__d("CtxMessagingInsightsEventFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("6270"),s=o("FalcoLoggerInternal").create("ctx_messaging_insights_event",e),u=s;l.default=u}),98);

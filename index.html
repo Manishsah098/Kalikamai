@@ -18,16 +18,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fa-solid fa-hands-holding-child"></i>
-                KYS
+                <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                <span class="logo-text">Kalikamai Youth Society</span>
             </a>
             <div class="nav-links">
-                <a href="#about">About Us</a>
-                <a href="#work">Our Work</a>
-                <a href="#">Our Work</a>
-                <a href="#impact">Our Impact</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="about.html">About Us</a>
+                <a href="work.html">Our Work</a>
+                <a href="members.html">Our Members</a>
+                <a href="impact.html">Our Impact</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
             </div>
             <div class="nav-actions">
                 <a href="#" class="btn btn-primary">Support Us</a>
@@ -41,7 +41,6 @@
         <!-- The background image will be set via CSS -->
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-subtitle">Kalikamai Youth Society</span>
             <h1 class="hero-title">Empowering Youth,<br>Transforming Communities.</h1>
             <p class="hero-description">Since our inception, we have believed that small steps taken together can lead
                 to significant change. Join us in building a better, brighter future for our society.</p>
@@ -56,154 +55,195 @@
             </div>
         </div>
     </header>
-
-    <!-- About Section -->
-    <section class="section about-section" id="about">
-        <div class="container section-grid">
-            <div class="about-text">
-                <h2 class="section-title">The Power of Youth <span class="highlight">Action</span></h2>
-                <p class="section-description">Kalikamai Youth Society is more than an organization—it's a movement
-                    driven by local youths standing together to create sustainable impact. For years, we have worked
-                    hand-in-hand with communities, implementing transformative initiatives that address critical needs.
-                </p>
-                <ul class="about-features">
-                    <li><i class="fa-solid fa-check-circle"></i> Community-driven action frameworks</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Transparent financial models</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Youth empowerment program delivery</li>
-                </ul>
-                <a href="#" class="btn btn-secondary mt-4">Discover Our History <i
-                        class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="about-visuals">
-                <div class="visual-card visual-1">
-                    <img src="assets/education.png" alt="Education in Nepal">
+    <!-- Vision, Mission & Impact Section -->
+    <section class="vision-mission-section" style="display: flex; flex-wrap: wrap; width: 100%; min-height: 85vh;">
+        <div
+            style="flex: 1 1 50%; background-color: #fca311; color: #1E293B; padding: 6rem 8% 10rem 8%; box-sizing: border-box; min-width: 320px;">
+            <div
+                style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                <div style="margin-bottom: 4rem;">
+                    <h2
+                        style="font-size: 2.8rem; display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; color: #111827;">
+                        <i class="fa-solid fa-bullseye" style="font-size: 2.5rem; flex-shrink: 0;"></i> Our Mission
+                    </h2>
+                    <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 500; font-family: var(--font-body);">
+                        Kalikamai Youth Society empowers disenfranchised communities in Nepal to achieve sustainable
+                        development and social justice by implementing collaborative, community-led solutions for
+                        positive transformation.
+                    </p>
                 </div>
-                <div class="visual-card visual-2">
-                    <div class="stat-card">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                        <h3>Passionate</h3>
-                        <p>Dedicated members ensuring grassroots reach.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Work Section -->
-    <section class="section work-section bg-light" id="work">
-        <div class="container text-center">
-            <span class="section-subtitle">What We Do</span>
-            <h2 class="section-title">Areas of <span class="highlight">Impact</span></h2>
-
-            <div class="work-grid mt-5">
-                <!-- Card 1 -->
-                <div class="work-card">
-                    <div class="work-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Community Development</h3>
-                    <p>Fostering resilient communities through infrastructure and capacity building programs.</p>
-                    <a href="#" class="work-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-                </div>
-                <!-- Card 2 -->
-                <div class="work-card">
-                    <div class="work-icon"><i class="fa-solid fa-book-open"></i></div>
-                    <h3>Education & Health</h3>
-                    <p>Ensuring access to quality education and fundamental healthcare in rural areas.</p>
-                    <a href="#" class="work-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-                </div>
-                <!-- Card 3 -->
-                <div class="work-card">
-                    <div class="work-icon"><i class="fa-solid fa-seedling"></i></div>
-                    <h3>Livelihood & Environment</h3>
-                    <p>Promoting sustainable agriculture, skill development, and environmental conservation.</p>
-                    <a href="#" class="work-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-                </div>
-                <!-- Card 4 -->
-                <div class="work-card">
-                    <div class="work-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
-                    <h3>Crisis Response</h3>
-                    <p>Providing rapid emergency relief and rehabilitation during natural disasters.</p>
-                    <a href="#" class="work-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Stats Section -->
-    <section class="impact-stats" id="impact">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">Years of Service</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="45">0</div>
-                    <div class="stat-label">Impact Projects</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="25000">0</div>
-                    <div class="stat-label">Lives Touched</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="120">0</div>
-                    <div class="stat-label">Active Volunteers</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News/Updates Section -->
-    <section class="section news-section" id="projects">
-        <div class="container">
-            <div class="section-header d-flex">
                 <div>
-                    <span class="section-subtitle">Stories</span>
-                    <h2 class="section-title">Latest <span class="highlight">Updates</span></h2>
+                    <h2
+                        style="font-size: 2.8rem; display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; color: #111827;">
+                        <i class="fa-solid fa-eye" style="font-size: 2.5rem; flex-shrink: 0;"></i> Our Impact
+                    </h2>
+                    <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 500; font-family: var(--font-body);">
+                        For over 15 years, Kalikamai Youth Society has consistently delivered impactful programs across
+                        Nepal, addressing a spectrum of critical challenges. Our initiatives span youth development,
+                        healthcare, child protection, women's empowerment, literacy, environmental sustainability, food
+                        security, social enterprise development, and crisis response, demonstrating a sustained
+                        commitment to positive change.
+                    </p>
                 </div>
-                <a href="#" class="btn btn-outline">View All News</a>
-            </div>
-
-            <div class="news-grid mt-5">
-                <article class="news-card">
-                    <div class="news-img-placeholder gradient-1">
-                        <i class="fa-solid fa-hand-holding-hand fa-3x text-white opacity-50"></i>
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">April 02, 2026</span>
-                        <h3>Empowering the Enterpreneurs of Tomorrow in Kalikamai</h3>
-                        <p class="news-excerpt">A recent skill-development session aimed at equipping youth with digital
-                            and vocational skills.</p>
-                        <a href="#" class="news-readmore">Read Story <i class="fa-solid fa-long-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <div class="news-img-placeholder gradient-2">
-                        <i class="fa-solid fa-house-chimney-medical fa-3x text-white opacity-50"></i>
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">March 25, 2026</span>
-                        <h3>Health Camp Success: Over 500 Screened</h3>
-                        <p class="news-excerpt">Kalikamai Youth Society successfully hosted a free community health camp
-                            over the weekend.</p>
-                        <a href="#" class="news-readmore">Read Story <i class="fa-solid fa-long-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <div class="news-img-placeholder gradient-3">
-                        <i class="fa-solid fa-tree fa-3x text-white opacity-50"></i>
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">March 12, 2026</span>
-                        <h3>Standing Together for the Environment</h3>
-                        <p class="news-excerpt">Planting 1000+ saplings in rural valleys to ensure a greener, healthier
-                            future.</p>
-                        <a href="#" class="news-readmore">Read Story <i class="fa-solid fa-long-arrow-right"></i></a>
-                    </div>
-                </article>
             </div>
         </div>
+        <div
+            style="flex: 1 1 50%; background-color: #b0bac1; padding: 6rem 8% 10rem 8%; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; position: relative; min-width: 320px;">
+            <div style="position: relative; max-width: 400px; width: 100%; text-align: center;">
+                <div
+                    style="width: 100%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2); background: url('assets/education.png') center/cover;">
+                    <div
+                        style="width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)); display: flex; align-items: center; justify-content: center;">
+                        <h2
+                            style="color: white; font-size: 4rem; text-shadow: 0 4px 15px rgba(0,0,0,0.5); font-weight: 800; margin: 0; transform: rotate(-5deg);">
+                            Our Impact</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 500px; text-align: left; margin-top: 3rem; color: #F8FAFC;">
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 500;">
+                    Since our inception, we have made meaningful progress across various sectors. Our journey reflects
+                    the transformative power of community-driven action, and today, Kalikamai Youth Society stands as a
+                    testament to the impact of collective effort.
+                </p>
+                <a href="impact.html" class="btn"
+                    style="background-color: #fca311; color: #111827; padding: 0.85rem 3rem; border-radius: 30px; font-weight: 800; box-shadow: 0 5px 15px rgba(0,0,0,0.15); text-transform: uppercase; font-size: 1.1rem; border: none;">READ
+                    MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Pill Section -->
+    <section class="stats-pill-section"
+        style="position: relative; z-index: 10; margin-top: -120px; padding: 0 2rem; display: flex; justify-content: center;">
+        <div
+            style="background-color: #1E293B; border: 15px solid #ffffff; border-radius: 100px; padding: 3.5rem 4rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; width: 100%; max-width: 1100px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.12);">
+
+            <div style="flex: 1; min-width: 180px;">
+                <h3 class="stat-number" data-target="18"
+                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+                    0</h3>
+                <p
+                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">
+                    Experience Years</p>
+            </div>
+
+            <div style="flex: 1; min-width: 180px;">
+                <h3 class="stat-number" data-target="10"
+                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+                    0</h3>
+                <p
+                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1.4;">
+                    Programs and<br>Projects</p>
+                <span style="color: #9CA3AF; font-size: 0.8rem; display: block; margin-top: 0.5rem;">Ongoing...</span>
+            </div>
+
+            <div style="flex: 1; min-width: 180px;">
+                <h3 class="stat-number" data-target="22"
+                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+                    0</h3>
+                <p
+                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">
+                    District Reached</p>
+            </div>
+
+            <div style="flex: 1; min-width: 180px;">
+                <h3 class="stat-number" data-target="20"
+                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+                    0</h3>
+                <p
+                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1.4;">
+                    Accreditations and<br>Awards</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- News and Updates Section -->
+    <section class="section news-section" id="news"
+        style="padding-top: 8rem; padding-bottom: 6rem; background-color: #ffffff;">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+                <h2
+                    style="font-size: 2.2rem; font-weight: 700; font-family: var(--font-heading); color: #1E293B; margin: 0;">
+                    News and Updates</h2>
+                <a href="projects.html"
+                    style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #fca311; display: flex; align-items: center; justify-content: center; color: #fca311; text-decoration: none; font-size: 1.2rem; transition: background 0.3s;"
+                    onmouseover="this.style.background='#fca311'; this.style.color='#fff';"
+                    onmouseout="this.style.background='transparent'; this.style.color='#fca311';">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="news-grid-v2">
+
+                <!-- Card 1 -->
+                <div class="news-card-v2">
+                    <a href="news-drug-awareness.html" class="news-card-image-wrap">
+                        <img src="assets/defence.jpg" alt="Drug Awareness Training">
+                    </a>
+                    <h3>Drug Awareness Training Program in Kalikamai RM</h3>
+                    <a href="news-drug-awareness.html" class="btn-read-more">READ MORE</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="news-card-v2">
+                    <a href="news-chhath-distribution.html" class="news-card-image-wrap">
+                        <img src="assets/food.jpg" alt="Chhath Festival Support">
+                    </a>
+                    <h3>Distribution of Sarees and Festival Materials during Chhath</h3>
+                    <a href="news-chhath-distribution.html" class="btn-read-more">READ MORE</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="news-card-v2">
+                    <a href="news-tree-plantation.html" class="news-card-image-wrap">
+                        <img src="assets/tree.jpg" alt="Tree Plantation Program">
+                    </a>
+                    <h3>Tree Plantation Program</h3>
+                    <a href="news-tree-plantation.html" class="btn-read-more">READ MORE</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="news-card-v2">
+                    <a href="news-prasad-distribution.html" class="news-card-image-wrap">
+                        <img src="assets/prasad.jpg" alt="Distributing the offerings of gods">
+                    </a>
+                    <h3>Distributing the offerings of gods</h3>
+                    <a href="news-prasad-distribution.html" class="btn-read-more">READ MORE</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizational Identity Section -->
+    <section class="identity-section" id="identity"
+        style="position: relative; width: 100%; min-height: 550px; padding: 4rem 0; background-color: #f8fafc; display: flex; align-items: center; overflow: hidden;">
+        <!-- Right side background image block -->
+        <div style="position: absolute; right: 0; top: 0; width: 75%; height: 100%;">
+            <img src="assets/education.png" alt="Kalikamai Youth Society"
+                style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9);">
+        </div>
+
+        <!-- Left side floating yellow box -->
+        <div
+            style="position: relative; z-index: 10; background-color: #fca311; width: 90%; max-width: 650px; padding: 4rem 4rem 4rem 8%; border-radius: 0 40px 40px 0; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+            <h2
+                style="font-size: 3.2rem; font-weight: 800; font-family: var(--font-heading); color: #1E293B; margin-bottom: 1.5rem; line-height: 1.2;">
+                We are Kalikamai Youth Society (A Little Step)</h2>
+            <p style="font-size: 1.25rem; line-height: 1.5; font-weight: 600; color: #1E293B; margin: 0;">We empower
+                children, young girls, women, and youth through community-based efforts, addressing diverse needs and
+                building economic opportunity and justice.</p>
+        </div>
+
+        <!-- Circular Icon Button bottom right -->
+        <a href="#projects"
+            style="position: absolute; bottom: 2.5rem; right: 2.5rem; background-color: #fca311; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s; z-index: 20;"
+            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fa-solid fa-chevron-up" style="color: #1E293B; font-size: 1.2rem;"></i>
+        </a>
     </section>
 
     <!-- Call to Action -->
@@ -223,15 +263,19 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <a href="#" class="logo footer-logo">
-                    <i class="fa-solid fa-hands-holding-child"></i> KYS
+                    <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
                 </a>
                 <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
                     communities through active youth participation.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/kalikama.i.yuva.samaja" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
 
@@ -257,9 +301,9 @@
 
             <div class="footer-contact">
                 <h3>Contact</h3>
-                <p><i class="fa-solid fa-map-pin"></i> Kalikamai, Nepal</p>
-                <p><i class="fa-solid fa-phone"></i> +977-1234567890</p>
-                <p><i class="fa-solid fa-envelope"></i> info@kalikamaiyouth.org</p>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope"></i>kalikamaiyouthsociety@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -268,6 +312,46 @@
             </div>
         </div>
     </footer>
+
+    <!-- Volunteer Form Modal -->
+    <div id="volunteerModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeModalBtn" class="modal-close"><i class="fa-solid fa-times"></i></button>
+            <h2
+                style="font-size: 2.2rem; font-family: var(--font-heading); color: var(--dark); margin-bottom: 0.5rem; letter-spacing: -0.5px;">
+                Join as a Volunteer</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Fill out the form below. Your details will
+                securely be sent directly to the Google Sheet!</p>
+
+            <!-- Note: Replace "GOOGLE_SCRIPT_WEB_APP_URL" with your actual Google Apps Script Web App URL -->
+            <form id="volunteerForm" action="GOOGLE_SCRIPT_WEB_APP_URL" method="POST"
+                style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <label class="modal-label">Full Name *</label>
+                    <input type="text" name="name" class="modal-input" required placeholder="Manish Shah">
+                </div>
+                <div>
+                    <label class="modal-label">Email Address *</label>
+                    <input type="email" name="email" class="modal-input" required placeholder="manishexample@gmail.com">
+                </div>
+                <div>
+                    <label class="modal-label">Phone Number *</label>
+                    <input type="tel" name="phone" class="modal-input" required placeholder="+977-9800000000">
+                </div>
+                <div>
+                    <label class="modal-label">Why do you want to join? *</label>
+                    <textarea name="reason" rows="4" class="modal-input" required style="resize: vertical;"
+                        placeholder="Tell us about your passion..."></textarea>
+                </div>
+
+                <button type="submit" class="modal-submit">Submit Details</button>
+            </form>
+            <div id="formSuccessMessage"
+                style="display: none; text-align: center; color: #10b981; margin-top: 1.5rem; font-weight: 600; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                <i class="fa-solid fa-check-circle" style="margin-right:0.5rem;"></i> Form submitted successfully!
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

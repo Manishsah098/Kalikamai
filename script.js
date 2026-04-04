@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let hasAnimated = false;
 
     // Intersection Observer to start animations when scrolled into view
-    const statsSection = document.querySelector('.impact-stats');
+    const statsSection = document.querySelector('.impact-stats') || document.querySelector('.stats-pill-section');
     
     if (statsSection) {
         const observer = new IntersectionObserver((entries) => {
@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const updateCounter = () => {
                 current += increment;
                 if (current < target) {
-                    // Update display, rounding to whole num. Show + for thousands or exacts
-                    stat.innerText = Math.ceil(current) + '+';
+                    // Update display
+                    stat.innerHTML = Math.ceil(current) + '<span style="font-size: 0.7em;">+</span>';
                     requestAnimationFrame(updateCounter);
                 } else {
-                    stat.innerText = target + '+';
+                    stat.innerHTML = target + '<span style="font-size: 0.7em;">+</span>';
                 }
             };
             
@@ -74,4 +74,65 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Volunteer Modal Logic
+    const volunteerBtn = document.querySelector('.cta-join');
+    const volunteerModal = document.getElementById('volunteerModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    if(volunteerBtn && volunteerModal && closeModalBtn) {
+        volunteerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            volunteerModal.style.display = 'flex';
+        });
+        
+        closeModalBtn.addEventListener('click', () => {
+            volunteerModal.style.display = 'none';
+        });
+        
+        // Close on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === volunteerModal) {
+                volunteerModal.style.display = 'none';
+            }
+        });
+    }
+
+    // Volunteer Form Submit Handler
+    const volunteerForm = document.getElementById('volunteerForm');
+    if (volunteerForm) {
+        volunteerForm.addEventListener('submit', (e) => {
+            // Intercept placeholder action to show success message
+            if(volunteerForm.getAttribute('action') === 'GOOGLE_SCRIPT_WEB_APP_URL' || volunteerForm.getAttribute('action') === '#') {
+                e.preventDefault();
+                volunteerForm.style.display = 'none';
+                const successMsg = document.getElementById('formSuccessMessage');
+                if (successMsg) successMsg.style.display = 'block';
+                
+                setTimeout(() => {
+                    if (volunteerModal) volunteerModal.style.display = 'none';
+                    volunteerForm.reset();
+                    volunteerForm.style.display = 'flex';
+                    if (successMsg) successMsg.style.display = 'none';
+                }, 3000);
+            }
+        });
+    }
+
+    // Contact Form Submit Handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            contactForm.style.display = 'none';
+            const successMsg = document.getElementById('contactSuccessMessage');
+            if (successMsg) successMsg.style.display = 'block';
+            
+            setTimeout(() => {
+                contactForm.reset();
+                contactForm.style.display = 'block';
+                if (successMsg) successMsg.style.display = 'none';
+            }, 4000);
+        });
+    }
 });

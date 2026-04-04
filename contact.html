@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Kalikamai Youth Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+            <span class="logo-text">Kalikamai Youth Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About Us</a>
+                <a href="work.html">Our Work</a>
+                <a href="members.html">Our Members</a>
+                <a href="impact.html">Our Impact</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-primary">Support Us</a>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p>We'd love to hear from you! Reach out to be part of our journey.</p>
+        </div>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="section bg-light" id="contact-info">
+        <div class="container section-grid">
+            <div class="about-text">
+                <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
+                <p class="section-description">Whether you are looking to volunteer, partner, or just discover more about our initiatives, our doors are always open.</p>
+                <div class="mt-4" style="line-height: 2.5; font-size: 1.1rem; color: var(--dark);">
+                    <p><i class="fa-solid fa-map-pin" style="color: var(--primary); margin-right: 15px; font-size: 1.5rem; width: 30px;"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                    <p><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 15px; font-size: 1.5rem; width: 30px;"></i> +977-9763368173</p>
+                    <p><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 15px; font-size: 1.5rem; width: 30px;"></i> kalikamaiyouthsociety@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-form" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-md);">
+                <form id="contactForm" action="#" method="POST">
+                    <div style="margin-bottom: 1.5rem;">
+                        <input type="text" name="name" required placeholder="Your Name" style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: var(--font-body);">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <input type="email" name="email" required placeholder="Your Email" style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: var(--font-body);">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <textarea name="message" rows="5" required placeholder="Your Message" style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: var(--font-body); resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+                <div id="contactSuccessMessage" style="display: none; text-align: center; color: #10b981; margin-top: 1.5rem; font-weight: 600; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                    <i class="fa-solid fa-check-circle" style="margin-right:0.5rem;"></i> Form submitted successfully!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                </a>
+                <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
+                    communities through active youth participation.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Our Work</h3>
+                <ul>
+                    <li><a href="work.html">Community Development</a></li>
+                    <li><a href="work.html">Education & Health</a></li>
+                    <li><a href="work.html">Environment Action</a></li>
+                    <li><a href="work.html">Crisis Response</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Impact Stories</a></li>
+                    <li><a href="#">Support Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope"></i> kalikamaiyouthsociety@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Kalikamai Youth Society. All Rights Reserved. Empowering Youth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

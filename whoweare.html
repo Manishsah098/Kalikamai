@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are | Kalikamai Youth Society</title>
+    <meta name="description" content="Learn who we are — Kalikamai Youth Society is a non-governmental, non-political organization empowering youth across Nepal.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .wwa-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0ea5e9 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .wwa-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(252, 163, 17, 0.08);
+            pointer-events: none;
+        }
+        .wwa-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.1);
+            pointer-events: none;
+        }
+        .wwa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(252, 163, 17, 0.15);
+            border: 1px solid rgba(252, 163, 17, 0.3);
+            color: #fca311;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+        .wwa-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .wwa-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        .wwa-card-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .wwa-value-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 2rem;
+            border-radius: 20px;
+            background: #F8FAFC;
+            transition: background 0.3s;
+        }
+        .wwa-value-item:hover {
+            background: #EFF6FF;
+        }
+        .wwa-value-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                <span class="logo-text">Kalikamai Youth Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html" class="active">About Us</a>
+                <a href="work.html">Our Work</a>
+                <a href="members.html">Our Members</a>
+                <a href="impact.html">Our Impact</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-primary">Support Us</a>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="wwa-hero">
+        <div class="container">
+            <div class="wwa-badge">
+                <i class="fa-solid fa-users"></i> Our Identity
+            </div>
+            <h1 style="font-size: 4.5rem; font-family: var(--font-heading); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1.5rem; max-width: 800px;">
+                Who We <span style="color: #fca311;">Are</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: rgba(255,255,255,0.75); max-width: 650px; line-height: 1.8; font-weight: 400;">
+                A non-governmental, non-political, and independent association of youth — united with one purpose: to empower communities and transform lives across Nepal.
+            </p>
+            <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="about.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.8rem; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(5px);" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                    <i class="fa-solid fa-arrow-left" style="font-size:0.85rem;"></i> Back to About Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Who We Are Content -->
+    <section style="background: #F8FAFC; padding: 6rem 0;">
+        <div class="container">
+
+            <!-- Intro Block -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 6rem;">
+                <div>
+                    <h2 style="font-size: 3rem; font-family: var(--font-heading); font-weight: 800; color: #1E293B; margin-bottom: 1.5rem; line-height: 1.2;">Our Purpose &amp; Identity</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.9; color: #475569; margin-bottom: 1.5rem;">
+                        Kalikamai Youth Society is a <strong>non-governmental, non-political, and independent association of youth</strong>. It operates under the prevailing laws and policies of the Government of Nepal.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.9; color: #475569; margin-bottom: 1.5rem;">
+                        The organization aims to unify youth power and enhance their skills and capacities through various activities. It seeks to lead youth collectively toward social transformation and work for the welfare of society.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.9; color: #475569;">
+                        This constitution has been prepared in accordance with the Organization Registration Act, 2034 B.S., reflecting our commitment to transparency and governance.
+                    </p>
+                </div>
+                <div>
+                    <img src="assets/students.jpg" alt="Kalikamai Youth Society" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); object-fit: cover; aspect-ratio: 4/3;">
+                </div>
+            </div>
+
+            <!-- 3 Core Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 6rem;">
+
+                <div class="wwa-card">
+                    <div class="wwa-card-icon" style="background: linear-gradient(135deg, #fef3c7, #fde68a);">
+                        <i class="fa-solid fa-bullseye" style="color: #d97706;"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-family: var(--font-heading); font-weight: 700; color: #1E293B; margin-bottom: 1rem;">Our Mission</h3>
+                    <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
+                        To conduct awareness programs against social distortions and malpractices, and to build a developed society by uniting the youth community and moving forward together.
+                    </p>
+                </div>
+
+                <div class="wwa-card">
+                    <div class="wwa-card-icon" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe);">
+                        <i class="fa-solid fa-eye" style="color: #1d4ed8;"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-family: var(--font-heading); font-weight: 700; color: #1E293B; margin-bottom: 1rem;">Our Vision</h3>
+                    <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
+                        A Nepal where every youth has the skills, opportunity, and platform to contribute meaningfully to a just, empowered, and self-reliant society.
+                    </p>
+                </div>
+
+                <div class="wwa-card">
+                    <div class="wwa-card-icon" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+                        <i class="fa-solid fa-seedling" style="color: #059669;"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-family: var(--font-heading); font-weight: 700; color: #1E293B; margin-bottom: 1rem;">Our Approach</h3>
+                    <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
+                        Community-led and youth-driven. We coordinate with local bodies to run awareness campaigns and build lasting partnerships — one small step at a time.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Values Section -->
+            <div style="background: white; border-radius: 32px; padding: 4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.06);">
+                <h2 style="font-size: 2.5rem; font-family: var(--font-heading); font-weight: 800; color: #1E293B; margin-bottom: 0.5rem; text-align: center;">What We Stand For</h2>
+                <p style="color: #64748b; text-align: center; margin-bottom: 3rem; font-size: 1.05rem;">The values that guide every action we take</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div class="wwa-value-item">
+                        <div class="wwa-value-icon"><i class="fa-solid fa-landmark"></i></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: #1E293B; margin-bottom: 0.4rem; font-size: 1.1rem;">Cultural Heritage</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">Preserving art, culture, customs, language, and traditional ways of life.</p>
+                        </div>
+                    </div>
+                    <div class="wwa-value-item">
+                        <div class="wwa-value-icon" style="background: linear-gradient(135deg, #fca311, #e08a00);"><i class="fa-solid fa-hands-helping"></i></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: #1E293B; margin-bottom: 0.4rem; font-size: 1.1rem;">Social Service</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">Actively participating in community service and supporting those in need.</p>
+                        </div>
+                    </div>
+                    <div class="wwa-value-item">
+                        <div class="wwa-value-icon" style="background: linear-gradient(135deg, #a855f7, #7c3aed);"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: #1E293B; margin-bottom: 0.4rem; font-size: 1.1rem;">Youth Empowerment</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">Building skills and capacities that enable youth to lead positive change.</p>
+                        </div>
+                    </div>
+                    <div class="wwa-value-item">
+                        <div class="wwa-value-icon" style="background: linear-gradient(135deg, #ec4899, #be185d);"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: #1E293B; margin-bottom: 0.4rem; font-size: 1.1rem;">Social Justice</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">Fighting malpractices and advocating for a fair and equitable society.</p>
+                        </div>
+                    </div>
+                    <div class="wwa-value-item">
+                        <div class="wwa-value-icon" style="background: linear-gradient(135deg, #10b981, #059669);"><i class="fa-solid fa-leaf"></i></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: #1E293B; margin-bottom: 0.4rem; font-size: 1.1rem;">Sustainability</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">Implementing long-term, community-rooted solutions that create lasting impact.</p>
+                        </div>
+                    </div>
+                    <div class="wwa-value-item">
+                        <div class="wwa-value-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i class="fa-solid fa-people-group"></i></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: #1E293B; margin-bottom: 0.4rem; font-size: 1.1rem;">Unity</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">Believing in the power of collective action over individual effort.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, #1E293B 0%, #0f172a 100%); padding: 6rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 3rem; font-family: var(--font-heading); font-weight: 800; color: white; margin-bottom: 1rem;">Ready to be part of the movement?</h2>
+            <p style="color: rgba(255,255,255,0.65); font-size: 1.15rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7;">Join thousands of youth who are taking small, meaningful steps together to transform Nepal's communities.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="members.html" style="background-color: #fca311; color: #111827; padding: 1.1rem 3rem; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(252,163,17,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">Meet Our Members</a>
+                <a href="contact.html" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2); color: white; padding: 1.1rem 3rem; border-radius: 30px; font-weight: 700; font-size: 1.1rem; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                </a>
+                <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient communities through active youth participation.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Our Work</h3>
+                <ul>
+                    <li><a href="work.html">Community Development</a></li>
+                    <li><a href="work.html">Education &amp; Health</a></li>
+                    <li><a href="work.html">Environment Action</a></li>
+                    <li><a href="work.html">Crisis Response</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="whoweare.html">Who We Are</a></li>
+                    <li><a href="impact.html">Our Impact</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope"></i> kalikamaiyouthsociety@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Kalikamai Youth Society. All Rights Reserved. Empowering Youth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

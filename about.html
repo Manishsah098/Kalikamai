@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Kalikamai Youth Society</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -17,64 +19,138 @@
             position: sticky;
             top: 70px;
             z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
+
         .sub-nav-links {
             display: flex;
             justify-content: center;
             gap: 3rem;
         }
+
         .sub-nav-link {
             font-weight: 600;
             color: #64748b;
             font-size: 0.95rem;
             transition: color 0.3s;
         }
-        .sub-nav-link:hover { color: #0ea5e9; }
+
+        .sub-nav-link:hover {
+            color: #0ea5e9;
+        }
 
         .wwa-card {
             background: white;
             border-radius: 24px;
             padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             height: 100%;
         }
+
         .wwa-card-icon {
-            width: 60px; height: 60px; border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; margin-bottom: 1.5rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
+
         .wwa-value-item {
-            display: flex; gap: 1.5rem; align-items: flex-start;
-            padding: 1.5rem; border-radius: 20px; background: #F8FAFC;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            border-radius: 20px;
+            background: #F8FAFC;
         }
-        
+
         /* Timeline Styles */
-        .timeline-container { position: relative; max-width: 1000px; margin: 4rem auto; padding: 2rem 0; }
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 2rem 0;
+        }
+
         .timeline-container::before {
-            content: ''; position: absolute; top: 0; left: 50%; width: 4px; height: 100%;
-            background: #e2e8f0; transform: translateX(-50%); border-radius: 2px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #e2e8f0;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
-        .timeline-item { margin-bottom: 4rem; position: relative; width: 50%; padding: 0 3rem; }
-        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
-        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            width: 50%;
+            padding: 0 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
         .timeline-dot {
-            position: absolute; top: 0; width: 20px; height: 20px;
-            background: #0ea5e9; border: 4px solid white; border-radius: 50%; z-index: 10;
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #0ea5e9;
+            border: 4px solid white;
+            border-radius: 50%;
+            z-index: 10;
         }
-        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
-        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
         .timeline-content {
-            background: white; padding: 2rem; border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         @media (max-width: 768px) {
-            .sub-nav-links { gap: 1.5rem; font-size: 0.85rem; }
-            .timeline-container::before { left: 20px; }
-            .timeline-item { width: 100%; left: 0 !important; padding-left: 50px; text-align: left !important; }
-            .timeline-dot { left: 10px !important; }
+            .sub-nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 50px;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+            }
         }
     </style>
 </head>
@@ -113,7 +189,8 @@
     <header class="page-header">
         <div class="container">
             <h1 class="page-title">About Us</h1>
-            <p>Kalikamai Youth Society: A non-governmental, youth-driven movement dedicated to transforming lives and empowering communities across Nepal.</p>
+            <p>Kalikamai Youth Society: A non-governmental, youth-driven movement dedicated to transforming lives and
+                empowering communities across Nepal.</p>
         </div>
     </header>
 
@@ -131,18 +208,24 @@
     <!-- Intro section -->
     <section style="padding: 6rem 0;" id="identity">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 5rem; align-items: center;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 5rem; align-items: center;">
                 <div>
                     <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Who We Are</h2>
                     <p style="font-size: 1.15rem; line-height: 1.9; color: #475569; margin-bottom: 1.5rem;">
-                        Kalikamai Youth Society is a <strong>non-governmental, non-political, and independent association of youth</strong>. It operates under the prevailing laws and policies of the Government of Nepal.
+                        Kalikamai Youth Society is a <strong>non-governmental, non-political, and independent
+                            association of youth</strong>. It operates under the prevailing laws and policies of the
+                        Government of Nepal.
                     </p>
                     <p style="font-size: 1.15rem; line-height: 1.9; color: #475569; margin-bottom: 1.5rem;">
-                        The organization aims to unify youth power and enhance their skills and capacities through various activities. It seeks to lead youth collectively toward social transformation and work for the welfare of society.
+                        The organization aims to unify youth power and enhance their skills and capacities through
+                        various activities. It seeks to lead youth collectively toward social transformation and work
+                        for the welfare of society.
                     </p>
                 </div>
                 <div>
-                    <img src="assets/logo.jpeg" alt="Identity" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                    <img src="assets/logo.jpeg" alt="Identity"
+                        style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
@@ -153,19 +236,25 @@
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                 <div class="wwa-card">
-                    <div class="wwa-card-icon" style="background: #fff7ed;"><i class="fa-solid fa-bullseye" style="color: #fca311;"></i></div>
+                    <div class="wwa-card-icon" style="background: #fff7ed;"><i class="fa-solid fa-bullseye"
+                            style="color: #fca311;"></i></div>
                     <h3 style="margin-bottom: 1rem;">Our Mission</h3>
-                    <p style="color: #64748b;">To conduct awareness programs against social distortions and malpractices, and to build a developed society by uniting the youth community.</p>
+                    <p style="color: #64748b;">To conduct awareness programs against social distortions and
+                        malpractices, and to build a developed society by uniting the youth community.</p>
                 </div>
                 <div class="wwa-card">
-                    <div class="wwa-card-icon" style="background: #eff6ff;"><i class="fa-solid fa-eye" style="color: #3b82f6;"></i></div>
+                    <div class="wwa-card-icon" style="background: #eff6ff;"><i class="fa-solid fa-eye"
+                            style="color: #3b82f6;"></i></div>
                     <h3 style="margin-bottom: 1rem;">Our Vision</h3>
-                    <p style="color: #64748b;">A Nepal where every youth has the skills, opportunity, and platform to contribute meaningfully to an empowered and self-reliant society.</p>
+                    <p style="color: #64748b;">A Nepal where every youth has the skills, opportunity, and platform to
+                        contribute meaningfully to an empowered and self-reliant society.</p>
                 </div>
                 <div class="wwa-card">
-                    <div class="wwa-card-icon" style="background: #f0fdf4;"><i class="fa-solid fa-hands-holding" style="color: #22c55e;"></i></div>
+                    <div class="wwa-card-icon" style="background: #f0fdf4;"><i class="fa-solid fa-hands-holding"
+                            style="color: #22c55e;"></i></div>
                     <h3 style="margin-bottom: 1rem;">Our Approach</h3>
-                    <p style="color: #64748b;">Community-led and youth-driven. We coordinate with local bodies to run awareness campaigns and build lasting partnerships.</p>
+                    <p style="color: #64748b;">Community-led and youth-driven. We coordinate with local bodies to run
+                        awareness campaigns and build lasting partnerships.</p>
                 </div>
             </div>
         </div>
@@ -176,28 +265,32 @@
         <div class="container">
             <div class="text-center" style="margin-bottom: 4rem;">
                 <h2 style="font-size: 2.8rem;">Our Core Values</h2>
-                <p style="color: #64748b; font-size: 1.1rem; margin-top: 1rem;">The principles that guide every action we take.</p>
+                <p style="color: #64748b; font-size: 1.1rem; margin-top: 1rem;">The principles that guide every action
+                    we take.</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
                 <div class="wwa-value-item">
                     <i class="fa-solid fa-landmark" style="color: #0ea5e9; font-size: 1.5rem;"></i>
                     <div>
                         <h4 style="margin-bottom: 0.5rem;">Cultural Heritage</h4>
-                        <p style="font-size: 0.95rem; color: #64748b;">Preserving art, culture, customs, language, and traditional ways of life.</p>
+                        <p style="font-size: 0.95rem; color: #64748b;">Preserving art, culture, customs, language, and
+                            traditional ways of life.</p>
                     </div>
                 </div>
                 <div class="wwa-value-item">
                     <i class="fa-solid fa-scale-balanced" style="color: #fca311; font-size: 1.5rem;"></i>
                     <div>
                         <h4 style="margin-bottom: 0.5rem;">Social Justice</h4>
-                        <p style="font-size: 0.95rem; color: #64748b;">Fighting malpractices and advocating for a fair and equitable society.</p>
+                        <p style="font-size: 0.95rem; color: #64748b;">Fighting malpractices and advocating for a fair
+                            and equitable society.</p>
                     </div>
                 </div>
                 <div class="wwa-value-item">
                     <i class="fa-solid fa-user-graduate" style="color: #8b5cf6; font-size: 1.5rem;"></i>
                     <div>
                         <h4 style="margin-bottom: 0.5rem;">Youth Empowerment</h4>
-                        <p style="font-size: 0.95rem; color: #64748b;">Building skills and capacities that enable youth to lead change.</p>
+                        <p style="font-size: 0.95rem; color: #64748b;">Building skills and capacities that enable youth
+                            to lead change.</p>
                     </div>
                 </div>
             </div>
@@ -207,18 +300,23 @@
     <!-- History Section -->
     <section style="background: #0f172a; color: white; padding: 8rem 0;" id="history">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: center; margin-bottom: 6rem;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: center; margin-bottom: 6rem;">
                 <div>
                     <h2 style="font-size: 3rem; color: white; margin-bottom: 2rem;">Our History</h2>
-                    <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
-                        Kalikamai Youth Society started with a <strong>"little step"</strong> taken by its founders in their early twenties to uplift their community.
+                    <p
+                        style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
+                        Kalikamai Youth Society started with a <strong>"Kalikamai Youth Society"</strong> taken by its
+                        founders in their early twenties to uplift their community.
                     </p>
                     <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.7);">
-                        Born out of a shared passion for social justice, what began as informal gatherings soon blossomed into a structured movement that now spans generations and multiple local districts.
+                        Born out of a shared passion for social justice, what began as informal gatherings soon
+                        blossomed into a structured movement that now spans generations and multiple local districts.
                     </p>
                 </div>
                 <div>
-                    <img src="assets/students.jpg" alt="Foundation" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                    <img src="assets/students.jpg" alt="Foundation"
+                        style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
                 </div>
             </div>
 
@@ -228,8 +326,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">THE BEGINNING</span>
-                        <h3 style="color: #1e293b; margin: 0.5rem 0;">A "Little Step" Taken</h3>
-                        <p style="color: #64748b;">Founders in their early twenties began small community efforts in Kalikamai RM, focusing on local issues.</p>
+                        <h3 style="color: #1e293b; margin: 0.5rem 0;">A "Step" Taken</h3>
+                        <p style="color: #64748b;">Founders in their early twenties began small community efforts in
+                            Kalikamai RM, focusing on local issues.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -237,7 +336,8 @@
                     <div class="timeline-content">
                         <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">REGISTRATION</span>
                         <h3 style="color: #1e293b; margin: 0.5rem 0;">Formal Organization</h3>
-                        <p style="color: #64748b;">Officially registered under the Organization Registration Act, 2034 B.S., becoming a recognized NGO.</p>
+                        <p style="color: #64748b;">Officially registered under the Organization Registration Act, 2080
+                            B.S., becoming a recognized NGO.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -245,7 +345,8 @@
                     <div class="timeline-content">
                         <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">EXPANSION</span>
                         <h3 style="color: #1e293b; margin: 0.5rem 0;">Green & Social Initiatives</h3>
-                        <p style="color: #64748b;">Launched major tree plantation and awareness campaigns, mobilizing hundreds of local youth.</p>
+                        <p style="color: #64748b;">Launched major tree plantation and awareness campaigns, mobilizing
+                            hundreds of local youth.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -253,7 +354,8 @@
                     <div class="timeline-content">
                         <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">NOW</span>
                         <h3 style="color: #1e293b; margin: 0.5rem 0;">Empowering Generations</h3>
-                        <p style="color: #64748b;">Evolving into a multi-generational organization with programs spanning healthcare and education.</p>
+                        <p style="color: #64748b;">Evolving into a multi-generational organization with programs
+                            spanning healthcare and education.</p>
                     </div>
                 </div>
             </div>
@@ -270,10 +372,14 @@
                 <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
                     communities through active youth participation.</p>
                 <div class="social-links">
-                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
 

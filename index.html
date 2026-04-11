@@ -10,6 +10,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
-                <span class="logo-text">Kalikamai Youth Society</span>
+                <span class="logo-text">Kalikamai Youth<br>Society</span>
             </a>
             <div class="nav-links">
                 <a href="about.html">About Us</a>
@@ -30,7 +31,7 @@
                 <a href="contact.html">Contact</a>
             </div>
             <div class="nav-actions">
-                <a href="#" class="btn btn-primary">Support Us</a>
+                <a href="donate.html" class="btn btn-primary">Support Us</a>
                 <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
@@ -45,8 +46,8 @@
             <p class="hero-description">Since our inception, we have believed that small steps taken together can lead
                 to significant change. Join us in building a better, brighter future for our society.</p>
             <div class="hero-buttons">
-                <a href="#work" class="btn btn-primary btn-lg">Explore Our Work</a>
-                <a href="#impact" class="btn btn-outline btn-lg">See Our Impact</a>
+                <a href="work.html" class="btn btn-primary btn-lg">Explore Our Work</a>
+                <a href="impact.html" class="btn btn-outline btn-lg">See Our Impact</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -78,7 +79,7 @@
                         <i class="fa-solid fa-eye" style="font-size: 2.5rem; flex-shrink: 0;"></i> Our Impact
                     </h2>
                     <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 500; font-family: var(--font-body);">
-                        For over 15 years, Kalikamai Youth Society has consistently delivered impactful programs across
+                        For over 02 years, Kalikamai Youth Society has consistently delivered impactful programs across
                         Nepal, addressing a spectrum of critical challenges. Our initiatives span youth development,
                         healthcare, child protection, women's empowerment, literacy, environmental sustainability, food
                         security, social enterprise development, and crisis response, demonstrating a sustained
@@ -115,45 +116,40 @@
     </section>
 
     <!-- Stats Pill Section -->
-    <section class="stats-pill-section"
-        style="position: relative; z-index: 10; margin-top: -120px; padding: 0 2rem; display: flex; justify-content: center;">
+    <section class="stats-pill-section relative z-10 -mt-[120px] px-8 flex justify-center">
         <div
-            style="background-color: #1E293B; border: 15px solid #ffffff; border-radius: 100px; padding: 3.5rem 4rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; width: 100%; max-width: 1100px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.12);">
+            class="bg-[#1E293B] border-[15px] border-white rounded-[100px] py-14 px-16 flex justify-around flex-wrap gap-8 w-full max-w-[1100px] text-center shadow-[0_10px_40px_rgba(0,0,0,0.12)]">
 
-            <div style="flex: 1; min-width: 180px;">
-                <h3 class="stat-number" data-target="18"
-                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+            <div class="flex-1 min-w-[180px]">
+                <h3 class="stat-number text-[#fca311] text-6xl font-extrabold mb-2 leading-none" data-target="2"
+                    style="font-family: var(--font-heading);">
                     0</h3>
-                <p
-                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">
+                <p class="text-[#F8FAFC] font-bold text-[0.95rem] tracking-[1px] uppercase">
                     Experience Years</p>
             </div>
 
-            <div style="flex: 1; min-width: 180px;">
-                <h3 class="stat-number" data-target="10"
-                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+            <div class="flex-1 min-w-[180px]">
+                <h3 class="stat-number text-[#fca311] text-6xl font-extrabold mb-2 leading-none" data-target="10"
+                    style="font-family: var(--font-heading);">
                     0</h3>
-                <p
-                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1.4;">
+                <p class="text-[#F8FAFC] font-bold text-[0.95rem] tracking-[1px] uppercase leading-relaxed">
                     Programs and<br>Projects</p>
-                <span style="color: #9CA3AF; font-size: 0.8rem; display: block; margin-top: 0.5rem;">Ongoing...</span>
+                <span class="text-gray-400 text-sm block mt-2">Ongoing...</span>
             </div>
 
-            <div style="flex: 1; min-width: 180px;">
-                <h3 class="stat-number" data-target="22"
-                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+            <div class="flex-1 min-w-[180px]">
+                <h3 class="stat-number text-[#fca311] text-6xl font-extrabold mb-2 leading-none" data-target="6"
+                    style="font-family: var(--font-heading);">
                     0</h3>
-                <p
-                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">
-                    District Reached</p>
+                <p class="text-[#F8FAFC] font-bold text-[0.95rem] tracking-[1px] uppercase">
+                    District Reaches</p>
             </div>
 
-            <div style="flex: 1; min-width: 180px;">
-                <h3 class="stat-number" data-target="20"
-                    style="color: #fca311; font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); margin-bottom: 0.5rem; line-height: 1;">
+            <div class="flex-1 min-w-[180px]">
+                <h3 class="stat-number text-[#fca311] text-6xl font-extrabold mb-2 leading-none" data-target="5"
+                    style="font-family: var(--font-heading);">
                     0</h3>
-                <p
-                    style="color: #F8FAFC; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1.4;">
+                <p class="text-[#F8FAFC] font-bold text-[0.95rem] tracking-[1px] uppercase leading-relaxed">
                     Accreditations and<br>Awards</p>
             </div>
 
@@ -214,6 +210,80 @@
                     <a href="news-prasad-distribution.html" class="btn-read-more">READ MORE</a>
                 </div>
 
+                <!-- Card 5 -->
+                <div class="news-card-v2">
+                    <a href="news-marriage.html" class="news-card-image-wrap">
+                        <img src="assets/marriage.jpg" alt="Helping Poor people during Marriage">
+                    </a>
+                    <h3>Helping Poor People During Marriage</h3>
+                    <a href="news-marriage.html" class="btn-read-more">READ MORE</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="news-card-v2">
+                    <a href="news-cancer.html" class="news-card-image-wrap">
+                        <img src="assets/cancer.jpg" alt="Saving life of Cancer Patient">
+                    </a>
+                    <h3>Saving Life of Cancer Patient</h3>
+                    <a href="news-cancer.html" class="btn-read-more">READ MORE</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 6rem;">
+                <span class="section-subtitle">Testimonials</span>
+                <h2
+                    style="font-size: 3.5rem; font-family: var(--font-heading); font-weight: 800; color: #1E293B; line-height: 1.1;">
+                    Awesome messages for our<br>organization</h2>
+            </div>
+
+            <div class="testimonial-grid">
+                <!-- Aakash Chaurasiya - Founder Message -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar-wrap">
+                        <div class="testimonial-avatar">
+                            <img src="assets/president.jpg" alt="Aakash Chaurasiya"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <h3 class="testimonial-name">Aakash Chaurasiya</h3>
+                    <span class="testimonial-role">Founder and President, Kalikamai Youth Society</span>
+                    <p class="testimonial-text">"At the core of our organization lies a commitment to social justice and
+                        sustainable development. From championing the Anti-Dowry Campaign to fostering Gender Equality,
+                        our mission is to dismantle systemic barriers and empower the marginalized.
+                        By preserving the rich Madhesi Folk Art and Culture while simultaneously driving modern Legal
+                        Awareness and Environmental Stewardship, we are building a bridge between our heritage and a
+                        progressive future. We remain dedicated to nurturing the inherent talents of our children and
+                        ensuring a safe, drug-free environment for our youth. Together, we are not just launching
+                        programs; we are spark-plugging a movement for lasting change."</p>
+                    <a href="about.html" class="btn-more">ABOUT OUR STORY</a>
+                </div>
+
+                <!-- Sujit Luintel -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar-wrap">
+                        <div class="testimonial-avatar">
+                            <img src="assets/bishal.jpg" alt="Bishal Kushwaha">
+                        </div>
+                    </div>
+                    <h3 class="testimonial-name">Bishal Kushwaha </h3>
+                    <span class="testimonial-role">Senior-Secretary</span>
+                    <p class="testimonial-text">"Our journey began with a simple belief: that a community is only as
+                        strong as its most vulnerable members. Whether we are on the ground for a Tree Plantation drive
+                        or advocating for Legal Remedies against Women’s Violence, our goal remains the same—dignity for
+                        all.
+                        We believe that through Sports Competitions and Capacity Building, we can channel the energy of
+                        our youth toward a brighter tomorrow. Our work in protecting our cultural identity and fighting
+                        social evils like drug abuse is a testament to our collective resilience. Thank you for standing
+                        with us as we strive for an equitable and empowered society"</p>
+                    <a href="#" class="btn-more">MORE</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -232,7 +302,7 @@
             style="position: relative; z-index: 10; background-color: #fca311; width: 90%; max-width: 650px; padding: 4rem 4rem 4rem 8%; border-radius: 0 40px 40px 0; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
             <h2
                 style="font-size: 3.2rem; font-weight: 800; font-family: var(--font-heading); color: #1E293B; margin-bottom: 1.5rem; line-height: 1.2;">
-                We are Kalikamai Youth Society (A Little Step)</h2>
+                We are Kalikamai Youth Society</h2>
             <p style="font-size: 1.25rem; line-height: 1.5; font-weight: 600; color: #1E293B; margin: 0;">We empower
                 children, young girls, women, and youth through community-based efforts, addressing diverse needs and
                 building economic opportunity and justice.</p>
@@ -252,7 +322,7 @@
             <h2>Your Little Step Can Make a Huge Impact!</h2>
             <p>Join us as a volunteer, a partner, or support our causes to bring a positive change in the society.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary btn-lg">Donate Now</a>
+                <a href="donate.html" class="btn btn-primary btn-lg">Donate Now</a>
                 <a href="#" class="btn btn-secondary btn-lg cta-join">Become a Volunteer</a>
             </div>
         </div>
@@ -292,10 +362,11 @@
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Impact Stories</a></li>
-                    <li><a href="#">Support Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#history">Our History</a></li>
+                    <li><a href="projects.html">Impact Stories</a></li>
+                    <li><a href="donate.html">Support Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -325,7 +396,7 @@
 
             <!-- Note: Replace "GOOGLE_SCRIPT_WEB_APP_URL" with your actual Google Apps Script Web App URL -->
             <form id="volunteerForm" action="GOOGLE_SCRIPT_WEB_APP_URL" method="POST"
-                style="display: flex; flex-direction: column; gap: 1.5rem;">
+                style="display: flex; flex-direction: column; gap: 0.8rem;">
                 <div>
                     <label class="modal-label">Full Name *</label>
                     <input type="text" name="name" class="modal-input" required placeholder="Manish Shah">
@@ -340,7 +411,7 @@
                 </div>
                 <div>
                     <label class="modal-label">Why do you want to join? *</label>
-                    <textarea name="reason" rows="4" class="modal-input" required style="resize: vertical;"
+                    <textarea name="reason" rows="3" class="modal-input" required style="resize: vertical;"
                         placeholder="Tell us about your passion..."></textarea>
                 </div>
 

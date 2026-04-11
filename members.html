@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Executive Committee | Kalikamai Youth Society</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -15,6 +17,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .members-header::after {
             content: '';
             position: absolute;
@@ -25,6 +28,7 @@
             background: #f8fafc;
             clip-path: ellipse(55% 100% at 50% 100%);
         }
+
         .members-header h1 {
             color: #ffffff;
             font-size: clamp(2.5rem, 5vw, 3.8rem);
@@ -33,15 +37,18 @@
             margin: 0 0 1rem 0;
             font-family: var(--font-heading), 'Outfit', sans-serif;
         }
+
         .members-header p {
-            color: rgba(255,255,255,0.65);
+            color: rgba(255, 255, 255, 0.65);
             font-size: 1.1rem;
             max-width: 500px;
         }
+
         .members-section {
             padding: 5rem 0 7rem;
             background-color: #f8fafc;
         }
+
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -49,6 +56,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         /* Card Container */
         .member-card {
             background: #ffffff;
@@ -59,40 +67,49 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
+
         /* Top colour bar */
         .member-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 5px;
             background: linear-gradient(90deg, #0ea5e9, #fca311);
             border-radius: 20px 20px 0 0;
             transition: height 0.3s ease;
         }
+
         /* Shine sweep on hover */
         .member-card::after {
             content: '';
             position: absolute;
-            top: 0; left: -75%;
+            top: 0;
+            left: -75%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
             transition: left 0.5s ease;
             pointer-events: none;
         }
+
         .member-card:hover::after {
             left: 130%;
         }
+
         .member-card:hover {
             box-shadow: 0 20px 50px rgba(14, 165, 233, 0.18);
             transform: translateY(-8px);
             border-color: rgba(14, 165, 233, 0.15);
         }
+
         .member-card:hover::before {
             height: 7px;
         }
+
         /* Photo Avatar */
         .member-avatar {
             width: 100px;
@@ -108,19 +125,23 @@
             justify-content: center;
             position: relative;
         }
+
         .member-card:hover .member-avatar {
             border-color: #0ea5e9;
             transform: scale(1.05);
         }
+
         .member-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .member-avatar .avatar-placeholder {
             font-size: 2.8rem;
             color: #94a3b8;
         }
+
         /* Role Badge */
         .member-role-badge {
             display: inline-block;
@@ -134,6 +155,7 @@
             text-transform: uppercase;
             margin-bottom: 0.75rem;
         }
+
         .member-name {
             font-family: var(--font-heading, 'Outfit', sans-serif);
             font-size: 1.2rem;
@@ -141,11 +163,13 @@
             font-weight: 700;
             margin-bottom: 0.3rem;
         }
+
         .member-dept {
             color: #94a3b8;
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
         }
+
         .member-divider {
             width: 40px;
             height: 3px;
@@ -153,11 +177,13 @@
             border-radius: 10px;
             margin: 0 auto 1.5rem;
         }
+
         .member-socials {
             display: flex;
             justify-content: center;
             gap: 0.8rem;
         }
+
         .member-socials a {
             width: 36px;
             height: 36px;
@@ -171,23 +197,46 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
+
         .member-socials a:hover {
             background: linear-gradient(135deg, #0ea5e9, #0284c7);
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
         }
+
+        .member-phone {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .member-phone i {
+            color: #0ea5e9;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="back-btn-container">
+        <button onclick="window.history.back()" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> <span>Go Back</span>
+        </button>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
-            <span class="logo-text">Kalikamai Youth Society</span>
+                <span class="logo-text">Kalikamai Youth<br>Society</span>
             </a>
             <div class="nav-links">
                 <a href="about.html">About Us</a>
@@ -198,7 +247,7 @@
                 <a href="contact.html">Contact</a>
             </div>
             <div class="nav-actions">
-                <a href="index.html" class="btn btn-primary">Support Us</a>
+                <a href="donate.html" class="btn btn-primary">Support Us</a>
                 <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
@@ -219,32 +268,44 @@
                 <!-- Card 1 -->
                 <div class="member-card">
                     <div class="member-avatar">
-                        <i class="fa-solid fa-user avatar-placeholder"></i>
+                        <img src="assets/president.jpg" alt="Aakash Chaurasiya">
                     </div>
-                    <span class="member-role-badge">Member Name</span>
-                    <h3 class="member-name">Mr. Labraj Oli</h3>
-                    <p class="member-dept">Education Pages</p>
+                    <span class="member-role-badge">President</span>
+                    <h3 class="member-name">Mr. Aakash Chaurasiya</h3>
+                    <p class="member-dept">B.A.LL.B</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9763368173</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="member-card">
-                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
-                    <span class="member-role-badge">Vice-President</span>
-                    <h3 class="member-name">Mr. Ram Prabesh Shah</h3>
-                    <p class="member-dept">SODCC - Parsa</p>
+                    <div class="member-avatar">
+                        <img src="assets/aakash kewat.jpg" alt="Mr. Aakash Kumar Kewat">
+                    </div>
+                    <span class="member-role-badge">Senior Vice-President</span>
+                    <h3 class="member-name">Mr. Aakash Kumar Kewat</h3>
+                    <p class="member-dept">+2 passed </p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9862545566</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/share/1ApAzqS6kh/" target="_blank"
+                            rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="akashchaurasiyabrj2019@Gmail.com" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -252,59 +313,83 @@
                 <div class="member-card">
                     <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
                     <span class="member-role-badge">Vice President</span>
-                    <h3 class="member-name">Ms. Dilmaya Bitalu (Chhetri)</h3>
-                    <p class="member-dept">Milan Myagdi</p>
+                    <h3 class="member-name">Mr. Bharat Sah Teli</h3>
+                    <p class="member-dept">BSC</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9861238906</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="member-card">
-                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
-                    <span class="member-role-badge">Secretary</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <div class="member-avatar">
+                        <img src="assets/bullet.png" alt="Bullet Tiwari Ji">
+                    </div>
+                    <span class="member-role-badge">Treasurer</span>
+                    <h3 class="member-name">Mr. Bullet Tiwari</h3>
+                    <p class="member-dept">BLE(8th)</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9763368173</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <!-- Card 5 -->
                 <div class="member-card">
-                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
-                    <span class="member-role-badge">Treasurer</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <div class="member-avatar">
+                        <img src="assets/bishal.jpg" alt="Mr. Bishal Kushwaha">
+                    </div>
+                    <span class="member-role-badge">Senior-Secretary</span>
+                    <h3 class="member-name">Mr. Bishal Kushwaha</h3>
+                    <p class="member-dept">Bachelor</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9806824046</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <!-- Card 6 -->
                 <div class="member-card">
                     <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
-                    <span class="member-role-badge">Joint Secretary</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <span class="member-role-badge">Joint-Secretary</span>
+                    <h3 class="member-name">Mr. Sudeep Kr Chaurasiya</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9817289513</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -312,44 +397,63 @@
                 <div class="member-card">
                     <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
                     <span class="member-role-badge">Executive Member</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <h3 class="member-name">Mr. Binay Kr Chaurasiya</h3>
+                    <p class="member-dept">Masters in Business Studies</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9763368173</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <!-- Card 8 -->
                 <div class="member-card">
-                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
+                    <div class="member-avatar">
+                        <img src="assets/mohan.jpg" alt="Mr. Mohan Kushwaha">
+                    </div>
                     <span class="member-role-badge">Executive Member</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <h3 class="member-name">Mr. Mohan Kushwaha</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9826877767</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <!-- Card 9 -->
                 <div class="member-card">
-                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
+                    <div class="member-avatar">
+                        <img src="assets/ramesh.jpg" alt="Mr.Ramesh Pd Chaurasiya">
+                    </div>
                     <span class="member-role-badge">Executive Member</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <h3 class="member-name">Mr.Ramesh Pd Chaurasiya</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9811282533</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -357,14 +461,19 @@
                 <div class="member-card">
                     <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
                     <span class="member-role-badge">Executive Member</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <h3 class="member-name">Mr. Chandra Shekhar Patel</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9808699643</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -372,14 +481,19 @@
                 <div class="member-card">
                     <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
                     <span class="member-role-badge">Executive Member</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <h3 class="member-name">Mr. Sabir Alam</h3>
+                    <p class="member-dept">BBS</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9816222137</p>
                     <div class="member-divider"></div>
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -387,15 +501,102 @@
                 <div class="member-card">
                     <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
                     <span class="member-role-badge">Executive Member</span>
-                    <h3 class="member-name">Member Name</h3>
-                    <p class="member-dept">Department / Area</p>
+                    <h3 class="member-name">Mr. Rakesh Sarraf</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9811234422</p>
                     <div class="member-divider"></div>
 
                     <div class="member-socials">
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="member-card">
+                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
+                    <span class="member-role-badge">Executive Member</span>
+                    <h3 class="member-name">Mr. Yuvraj Patel</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9821877531</p>
+                    <div class="member-divider"></div>
+                    <div class="member-socials">
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="member-card">
+                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
+                    <span class="member-role-badge">Executive Member</span>
+                    <h3 class="member-name">Mr. Sahajad Alam</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9824281122</p>
+                    <div class="member-divider"></div>
+                    <div class="member-socials">
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 15 -->
+                <div class="member-card">
+                    <div class="member-avatar"><i class="fa-solid fa-user avatar-placeholder"></i></div>
+                    <span class="member-role-badge">Executive Member</span>
+                    <h3 class="member-name">Mr. Sujit Kr Kushwaha</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9824284687</p>
+                    <div class="member-divider"></div>
+                    <div class="member-socials">
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 16 -->
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <img src="assets/nitesh.jpg" alt="Mr. Nitesh Kushwaha">
+                    </div>
+                    <span class="member-role-badge">Executive Member</span>
+                    <h3 class="member-name">Mr. Nitesh Kushwaha</h3>
+                    <p class="member-dept">Intermediate</p>
+                    <p class="member-phone"><i class="fa-solid fa-phone"></i> +977-9811290956</p>
+                    <div class="member-divider"></div>
+                    <div class="member-socials">
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://google.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -414,30 +615,35 @@
                 <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
                     communities through active youth participation.</p>
                 <div class="social-links">
-                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
 
             <div class="footer-links">
                 <h3>Our Work</h3>
                 <ul>
-                    <li><a href="index.html#work">Community Development</a></li>
-                    <li><a href="index.html#work">Education & Health</a></li>
-                    <li><a href="index.html#work">Environment Action</a></li>
-                    <li><a href="index.html#work">Crisis Response</a></li>
+                    <li><a href="work.html">Community Development</a></li>
+                    <li><a href="work.html">Education & Health</a></li>
+                    <li><a href="work.html">Environment Action</a></li>
+                    <li><a href="work.html">Crisis Response</a></li>
                 </ul>
             </div>
 
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#projects">Impact Stories</a></li>
-                    <li><a href="#">Support Us</a></li>
-                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#history">Our History</a></li>
+                    <li><a href="projects.html">Impact Stories</a></li>
+                    <li><a href="donate.html">Support Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 

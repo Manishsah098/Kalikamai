@@ -5,21 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Kalikamai Youth Society</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Consolidated Styles */
+        .sub-nav {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .sub-nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+        .sub-nav-link {
+            font-weight: 600;
+            color: #64748b;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .sub-nav-link:hover { color: #0ea5e9; }
+
+        .wwa-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.04);
+            height: 100%;
+        }
+        .wwa-card-icon {
+            width: 60px; height: 60px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 1.5rem;
+        }
+        .wwa-value-item {
+            display: flex; gap: 1.5rem; align-items: flex-start;
+            padding: 1.5rem; border-radius: 20px; background: #F8FAFC;
+        }
+        
+        /* Timeline Styles */
+        .timeline-container { position: relative; max-width: 1000px; margin: 4rem auto; padding: 2rem 0; }
+        .timeline-container::before {
+            content: ''; position: absolute; top: 0; left: 50%; width: 4px; height: 100%;
+            background: #e2e8f0; transform: translateX(-50%); border-radius: 2px;
+        }
+        .timeline-item { margin-bottom: 4rem; position: relative; width: 50%; padding: 0 3rem; }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+        .timeline-dot {
+            position: absolute; top: 0; width: 20px; height: 20px;
+            background: #0ea5e9; border: 4px solid white; border-radius: 50%; z-index: 10;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+        .timeline-content {
+            background: white; padding: 2rem; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .sub-nav-links { gap: 1.5rem; font-size: 0.85rem; }
+            .timeline-container::before { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 50px; text-align: left !important; }
+            .timeline-dot { left: 10px !important; }
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="back-btn-container">
+        <button onclick="window.history.back()" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> <span>Go Back</span>
+        </button>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar scrolled">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
-                <span class="logo-text">Kalikamai Youth Society</span>
+                <span class="logo-text">Kalikamai Youth<br>Society</span>
             </a>
             <div class="nav-links">
                 <a href="about.html" class="active">About Us</a>
@@ -30,7 +103,7 @@
                 <a href="contact.html">Contact</a>
             </div>
             <div class="nav-actions">
-                <a href="#" class="btn btn-primary">Support Us</a>
+                <a href="donate.html" class="btn btn-primary">Support Us</a>
                 <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
@@ -44,91 +117,151 @@
         </div>
     </header>
 
-    <!-- Intro Text Section -->
-    <section style="background-color: #f8fafc; padding: 5rem 0 3rem 0;">
+    <!-- Sub-Nav -->
+    <div class="sub-nav">
         <div class="container">
-            <div style="max-width: 850px; margin: 0 auto; position: relative;">
-                <div style="position: absolute; top: -3rem; right: -4rem; opacity: 0.07; pointer-events: none;">
-                    <img src="assets/logo.jpeg" style="height: 260px; filter: grayscale(100%) invert(1) contrast(1.5); mix-blend-mode: screen; display: block;">
+            <div class="sub-nav-links">
+                <a href="#identity" class="sub-nav-link">OUR IDENTITY</a>
+                <a href="#values" class="sub-nav-link">OUR VALUES</a>
+                <a href="#history" class="sub-nav-link">OUR JOURNEY</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intro section -->
+    <section style="padding: 6rem 0;" id="identity">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 5rem; align-items: center;">
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Who We Are</h2>
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: #475569; margin-bottom: 1.5rem;">
+                        Kalikamai Youth Society is a <strong>non-governmental, non-political, and independent association of youth</strong>. It operates under the prevailing laws and policies of the Government of Nepal.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: #475569; margin-bottom: 1.5rem;">
+                        The organization aims to unify youth power and enhance their skills and capacities through various activities. It seeks to lead youth collectively toward social transformation and work for the welfare of society.
+                    </p>
                 </div>
-                <p style="font-size: 1.15rem; line-height: 1.9; color: #475569; margin-bottom: 2rem; font-weight: 400;">
-                    This organization is a non-governmental, non-political, and independent association of youth. It operates under the prevailing laws and policies of the Government of Nepal. The organization aims to unify youth power and enhance their skills and capacities through various activities. It seeks to lead youth collectively toward social transformation and work for the welfare of society.
-                </p>
-                <p style="font-size: 1.15rem; line-height: 1.9; color: #475569; font-weight: 400;">
-                    The main objective of this organization is to conduct awareness programs against social distortions and malpractices, and to build a developed society by uniting the youth community and moving forward together. It is also committed to preserving and promoting historical, religious, cultural, and traditional heritage.
-                </p>
+                <div>
+                    <img src="assets/logo.jpeg" alt="Identity" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Two Column Grid Section -->
-    <section style="background-color: #ffffff; padding: 4rem 0 8rem 0;">
+    <!-- Mission/Vision Grid -->
+    <section style="background: #F8FAFC; padding: 6rem 0;">
         <div class="container">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 6rem; align-items: start;">
-
-                <!-- Left: Who we are -->
-                <div>
-                    <div style="margin-bottom: 5rem; display: flex; align-items: center; gap: 1rem;">
-                        <img src="assets/logo.jpeg" alt="Kalikamai Logo" style="height: 90px;">
-                        <div>
-                            <h3
-                                style="font-family: var(--font-heading); font-size: 2rem; color: #93c5fd; line-height: 1;">
-                                KALIKAMAI YOUTH</h3>
-                            <h3
-                                style="font-family: var(--font-heading); font-size: 2rem; color: #fde047; line-height: 1;">
-                                SOCIETY</h3>
-                        </div>
-                    </div>
-
-                    <h2
-                        style="font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #1E293B; margin-bottom: 1.5rem;">
-                        Who we are</h2>
-                    <p
-                        style="font-size: 1.1rem; line-height: 1.8; color: #475569; margin-bottom: 3rem; font-weight: 400; max-width: 90%;">
-                        Kalikamai Youth Society delivers sustainable solutions to address critical social, economic,
-                        health, and environmental challenges, empowering communities to achieve lasting positive change.
-                    </p>
-                    <a href="whoweare.html"
-                        style="display: inline-block; background-color: #0ea5e9; color: white; padding: 1rem 2.5rem; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s;"
-                        onmouseover="this.style.background='#0284c7'; this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.background='#0ea5e9'; this.style.transform='translateY(0)';">READ
-                        MORE</a>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="wwa-card">
+                    <div class="wwa-card-icon" style="background: #fff7ed;"><i class="fa-solid fa-bullseye" style="color: #fca311;"></i></div>
+                    <h3 style="margin-bottom: 1rem;">Our Mission</h3>
+                    <p style="color: #64748b;">To conduct awareness programs against social distortions and malpractices, and to build a developed society by uniting the youth community.</p>
                 </div>
-
-                <!-- Right: Our History -->
-                <div>
-                    <div style="position: relative; margin-bottom: 3rem;">
-                        <img src="assets/students.jpg" alt="Our History"
-                            style="width: 100%; border-radius: 20px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <div
-                            style="position: absolute; bottom: 2rem; left: 0; background: white; padding: 0.8rem 2rem; border-radius: 0 5px 5px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-weight: 500; font-family: var(--font-body); color: #475569; font-size: 1rem;">
-                            Our History
-                        </div>
-                    </div>
-
-                    <h2
-                        style="font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: #64748b; margin-bottom: 1.5rem;">
-                        Our History</h2>
-                    <p
-                        style="font-size: 1.1rem; line-height: 1.8; color: #475569; margin-bottom: 3rem; font-weight: 400; max-width: 90%;">
-                        Kalikamai Youth Society has evolved into an organization that spans generations, its roots
-                        tracing back to a "little step" taken by its founders in their early twenties to uplift and
-                        transform their community.
-                    </p>
-                    <a href="impact.html"
-                        style="display: inline-block; background-color: #0ea5e9; color: white; padding: 1rem 2.5rem; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s;"
-                        onmouseover="this.style.background='#0284c7'; this.style.transform='translateY(-2px)';"
-                        onmouseout="this.style.background='#0ea5e9'; this.style.transform='translateY(0)';">READ
-                        MORE</a>
+                <div class="wwa-card">
+                    <div class="wwa-card-icon" style="background: #eff6ff;"><i class="fa-solid fa-eye" style="color: #3b82f6;"></i></div>
+                    <h3 style="margin-bottom: 1rem;">Our Vision</h3>
+                    <p style="color: #64748b;">A Nepal where every youth has the skills, opportunity, and platform to contribute meaningfully to an empowered and self-reliant society.</p>
                 </div>
+                <div class="wwa-card">
+                    <div class="wwa-card-icon" style="background: #f0fdf4;"><i class="fa-solid fa-hands-holding" style="color: #22c55e;"></i></div>
+                    <h3 style="margin-bottom: 1rem;">Our Approach</h3>
+                    <p style="color: #64748b;">Community-led and youth-driven. We coordinate with local bodies to run awareness campaigns and build lasting partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Values Section -->
+    <section style="padding: 8rem 0;" id="values">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 2.8rem;">Our Core Values</h2>
+                <p style="color: #64748b; font-size: 1.1rem; margin-top: 1rem;">The principles that guide every action we take.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                <div class="wwa-value-item">
+                    <i class="fa-solid fa-landmark" style="color: #0ea5e9; font-size: 1.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Cultural Heritage</h4>
+                        <p style="font-size: 0.95rem; color: #64748b;">Preserving art, culture, customs, language, and traditional ways of life.</p>
+                    </div>
+                </div>
+                <div class="wwa-value-item">
+                    <i class="fa-solid fa-scale-balanced" style="color: #fca311; font-size: 1.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Social Justice</h4>
+                        <p style="font-size: 0.95rem; color: #64748b;">Fighting malpractices and advocating for a fair and equitable society.</p>
+                    </div>
+                </div>
+                <div class="wwa-value-item">
+                    <i class="fa-solid fa-user-graduate" style="color: #8b5cf6; font-size: 1.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Youth Empowerment</h4>
+                        <p style="font-size: 0.95rem; color: #64748b;">Building skills and capacities that enable youth to lead change.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section style="background: #0f172a; color: white; padding: 8rem 0;" id="history">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: center; margin-bottom: 6rem;">
+                <div>
+                    <h2 style="font-size: 3rem; color: white; margin-bottom: 2rem;">Our History</h2>
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">
+                        Kalikamai Youth Society started with a <strong>"little step"</strong> taken by its founders in their early twenties to uplift their community.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.7);">
+                        Born out of a shared passion for social justice, what began as informal gatherings soon blossomed into a structured movement that now spans generations and multiple local districts.
+                    </p>
+                </div>
+                <div>
+                    <img src="assets/students.jpg" alt="Foundation" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">THE BEGINNING</span>
+                        <h3 style="color: #1e293b; margin: 0.5rem 0;">A "Little Step" Taken</h3>
+                        <p style="color: #64748b;">Founders in their early twenties began small community efforts in Kalikamai RM, focusing on local issues.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">REGISTRATION</span>
+                        <h3 style="color: #1e293b; margin: 0.5rem 0;">Formal Organization</h3>
+                        <p style="color: #64748b;">Officially registered under the Organization Registration Act, 2034 B.S., becoming a recognized NGO.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">EXPANSION</span>
+                        <h3 style="color: #1e293b; margin: 0.5rem 0;">Green & Social Initiatives</h3>
+                        <p style="color: #64748b;">Launched major tree plantation and awareness campaigns, mobilizing hundreds of local youth.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color: #0ea5e9; font-weight: 800; font-size: 1.2rem;">NOW</span>
+                        <h3 style="color: #1e293b; margin: 0.5rem 0;">Empowering Generations</h3>
+                        <p style="color: #64748b;">Evolving into a multi-generational organization with programs spanning healthcare and education.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-about">
                 <a href="index.html" class="logo footer-logo">
@@ -137,14 +270,10 @@
                 <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
                     communities through active youth participation.</p>
                 <div class="social-links">
-                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-twitter"></i></a>
-                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-instagram"></i></a>
-                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-youtube"></i></a>
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
 
@@ -162,17 +291,18 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#history">Our History</a></li>
                     <li><a href="projects.html">Impact Stories</a></li>
-                    <li><a href="#">Support Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="donate.html">Support Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="footer-contact">
                 <h3>Contact</h3>
-                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-o2 Bhedihari, Parsa</p>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
                 <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
-                <p><i class="fa-solid fa-envelope"></i>kalikamaiyouthsociety@gmail.com</p>
+                <p><i class="fa-solid fa-envelope"></i> kalikamaiyouthsociety@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">

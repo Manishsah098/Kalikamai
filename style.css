@@ -254,18 +254,20 @@ ul {
     height: 55px;
     width: 55px;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     background-color: var(--white);
-    border: 2px solid var(--white);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2.5px solid var(--white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: var(--transition);
+    clip-path: circle(44% at center);
+    transform: scale(1.25); /* Zoom in aggresively to push black corners outside the clip area */
 }
 
 .logo-text {
     font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: -0.5px;
-    white-space: nowrap;
+    line-height: 1.1;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -926,13 +928,16 @@ ul {
 }
 
 .modal-content {
-    background: var(--white);
-    padding: 3.5rem;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff, #f0f9ff);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
     width: 90%;
-    max-width: 550px;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.25);
     animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -962,13 +967,13 @@ ul {
 
 .modal-input {
     width: 100%;
-    padding: 1rem 1.25rem;
+    padding: 0.8rem 1.2rem;
     border: 2px solid #E2E8F0;
     border-radius: 10px;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-main);
-    background-color: #F8FAFC;
+    background-color: #ffffff;
     box-sizing: border-box;
     transition: var(--transition);
     outline: none;
@@ -993,8 +998,8 @@ ul {
 }
 
 .modal-submit {
-    background: var(--gradient-secondary);
-    color: var(--dark);
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    color: #ffffff;
     border: none;
     padding: 1.2rem;
     border-radius: 30px;
@@ -1005,14 +1010,15 @@ ul {
     margin-top: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(253, 224, 71, 0.4);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
     width: 100%;
 }
 
 .modal-submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(253, 224, 71, 0.6);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
 }
 
 .modal-submit:active {
@@ -1022,8 +1028,8 @@ ul {
 /* Premium News Card Styles v2 */
 .news-grid-v2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
 }
 
 .news-card-v2 {
@@ -1031,6 +1037,8 @@ ul {
     flex-direction: column;
     background: var(--white);
     border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Clean default frame shadow */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     height: 100%;
@@ -1038,13 +1046,14 @@ ul {
 
 .news-card-v2:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+    border-color: #cbd5e1;
 }
 
 .news-card-image-wrap {
     display: block;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0; /* Only top corners rounded to fit frame */
     aspect-ratio: 4/3;
     position: relative;
 }
@@ -1065,7 +1074,7 @@ ul {
     font-weight: 600;
     line-height: 1.5;
     color: #1e293b;
-    margin: 1.5rem 0 0;
+    margin: 1.5rem 1.5rem 0; /* Added horizontal padding to fit frame */
     min-height: 3.5rem; /* Forces consistent height for titles */
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1076,6 +1085,8 @@ ul {
 
 .news-card-v2 .btn-read-more {
     margin-top: 2rem;
+    margin-left: 1.5rem; /* Added padding to fit frame */
+    margin-bottom: 1.5rem; /* Space from bottom border */
     align-self: flex-start;
     padding: 0.8rem 2rem;
     background-color: #f1f5f9;
@@ -1091,4 +1102,193 @@ ul {
     background-color: #1e3a5f;
     color: var(--white);
     transform: translateX(5px);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 8rem 0;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(252, 163, 17, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.testimonial-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 32px;
+    padding: 4rem 2.5rem 3rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: visible;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(14, 165, 233, 0.25);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+.testimonial-avatar-wrap {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #0ea5e9, #a855f7);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-role {
+    font-size: 0.95rem;
+    color: #38bdf8;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.testimonial-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.btn-more {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .btn-more {
+    background: #0ea5e9;
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+}
+
+@media (max-width: 768px) {
+    .testimonial-grid {
+        gap: 5rem;
+    }
+}
+
+/* Testimonial Placeholder Styles */
+.testimonial-avatar.placeholder {
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+    font-size: 2.5rem;
+}
+
+/* Global Back Button */
+.back-btn-container {
+    position: absolute;
+    top: 7.5rem;
+    left: 2rem;
+    z-index: 100;
+}
+
+.btn-back {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-back i {
+    font-size: 0.8rem;
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+    color: #ffffff;
+}
+
+/* For pages with light hero sections */
+.light-hero .btn-back {
+    background: rgba(15, 23, 42, 0.05);
+    color: var(--dark);
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+.light-hero .btn-back:hover {
+    background: rgba(15, 23, 42, 0.1);
+}
+
+@media (max-width: 768px) {
+    .back-btn-container {
+        top: 8rem;
+        left: 1rem;
+    }
+    .btn-back span {
+        display: none;
+    }
+    .btn-back {
+        padding: 0.6rem;
+    }
 }

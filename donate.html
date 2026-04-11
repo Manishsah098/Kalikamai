@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us | Kalikamai Youth Society</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .donation-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0ea5e9 100%);
+            padding: 10rem 0 6rem;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: #f8fafc;
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+
+
+        .donation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .donation-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .donation-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .donation-icon {
+            width: 80px;
+            height: 80px;
+            background: #f0f9ff;
+            color: #0ea5e9;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 2rem;
+        }
+
+        .bank-details {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .bank-details p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .bank-details strong {
+            color: #1e293b;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #0ea5e9;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .qr-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .qr-code-placeholder {
+            width: 250px;
+            height: 250px;
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-btn-container">
+        <button onclick="window.history.back()" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> <span>Go Back</span>
+        </button>
+    </div>
+
+    <header class="donation-header">
+        <div class="container">
+            <h1 class="page-title">Support Our Mission</h1>
+            <p style="margin: 0 auto; max-width: 600px; color: rgba(255,255,255,0.8);">Your generous contribution
+                empowers youth, supports education, and builds resilient communities across Nepal. Every step matters.
+            </p>
+        </div>
+    </header>
+
+    <main class="container" style="padding-bottom: 8rem;">
+        <div class="donation-grid">
+            <!-- Bank Transfer -->
+            <div class="donation-card">
+                <div class="donation-icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <h3>Bank Transfer</h3>
+                <p>Directly support us through a secure bank deposit.</p>
+                <div class="bank-details">
+                    <p><strong>Bank:</strong>Rastriya Banijya Bank Ltd</p>
+                    <p><strong>Account Name:</strong> Kalikamai Youth Society</p>
+                    <p><strong>Account Number:</strong>172100000260001</p>
+                    <p><strong>Branch:</strong>Pokariya Branch</p>
+                </div>
+            </div>
+
+            <!-- Digital Wallets -->
+            <div class="donation-card">
+                <div class="donation-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <h3>Digital Wallets</h3>
+                <p>Fast and easy donations via eSewa or Khalti.</p>
+                <div class="bank-details">
+                    <p><strong>eSewa ID:</strong>+977-9763368173</p>
+                    <p><strong>Khalti ID:</strong>+977-9763368173</p>
+                    <p><strong>Name:</strong> Kalikamai Youth Society</p>
+                </div>
+            </div>
+
+            <!-- In-person / Office -->
+            <div class="donation-card">
+                <div class="donation-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </div>
+                <h3>Office Visit</h3>
+                <p>You can also visit our office for in-person support.</p>
+                <div class="bank-details">
+                    <p><strong>Location:</strong> Kalikamai RM-02, Bhedihari, Parsa</p>
+                    <p><strong>Phone:</strong> +977-9763368173</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="qr-section">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Scan to Donate</h2>
+            <p style="color: #64748b;">Simply scan the QR code using your mobile banking app or digital wallet.</p>
+            <div class="qr-code-wrapper"
+                style="max-width: 320px; margin: 3rem auto; padding: 2rem; background: white; border-radius: 30px; box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1); border: 1px solid #f1f5f9;">
+                <img src="assets/esewa.jpg" alt="eSewa QR Code"
+                    style="width: 100%; border-radius: 15px; display: block;">
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed #e2e8f0;">
+                    <p style="font-weight: 700; color: #1e293b; margin-bottom: 0.2rem;">Kalikamai Youth Society</p>
+                    <p style="font-size: 0.9rem; color: #64748b;">Scan to support via eSewa or Bank App</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                </a>
+                <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
+                    communities through active youth participation.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/kalikama.i.yuva.samaja" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Our Work</h3>
+                <ul>
+                    <li><a href="work.html">Community Development</a></li>
+                    <li><a href="work.html">Education & Health</a></li>
+                    <li><a href="work.html">Environment Action</a></li>
+                    <li><a href="work.html">Crisis Response</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#history">Our History</a></li>
+                    <li><a href="projects.html">Impact Stories</a></li>
+                    <li><a href="donate.html">Support Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope"></i>kalikamaiyouthsociety@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Kalikamai Youth Society. All Rights Reserved. Empowering Youth.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

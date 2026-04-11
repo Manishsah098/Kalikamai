@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arts & Culture | Kalikamai Youth Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .story-featured-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        .story-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #475569;
+        }
+        .story-content p {
+            margin-bottom: 2rem;
+        }
+        .story-content h2 {
+            color: #1e293b;
+            margin: 2.5rem 0 1.5rem;
+            font-size: 1.8rem;
+        }
+        .story-content ul {
+            margin-bottom: 2rem;
+            list-style: none; /* Already styled in style.css maybe? No, let's redefine */
+            padding-left: 0;
+        }
+        .story-content li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .story-content li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+        }
+        .story-content strong {
+            color: #1e293b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-btn-container">
+        <button onclick="window.history.back()" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> <span>Go Back</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                <span class="logo-text">Kalikamai Youth<br>Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About Us</a>
+                <a href="work.html">Our Work</a>
+                <a href="members.html">Our Members</a>
+                <a href="impact.html">Our Impact</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Support Us</a>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Arts & Culture</h1>
+            <p>Preserving, promoting, and celebrating traditional Madhesi folk art, music, and regional cultural heritage.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="story-container">
+        <img src="assets/madhesi-art.png" alt="Arts and Culture Preservation" class="story-featured-img">
+        
+        <div class="story-content">
+            <p>
+                A society without its culture loses its identity. At the <strong>Kalikamai Youth Society (KYS)</strong>, we recognize the immense value of our vibrant regional heritage. Our <strong>Arts & Culture</strong> pillar is dedicated to keeping the rich, traditional Madhesi customs alive and relevant for the younger generations.
+            </p>
+
+            <h2>Cultural Preservation Efforts</h2>
+            <ul>
+                <li><strong>Madhesi Folk Art Exhibitions:</strong> We regularly host and sponsor local art showcases that highlight distinct regional painting styles, pottery, and textile weaving, providing local artisans a platform to monetize their crafts.</li>
+                <li><strong>Festival Organization:</strong> KYS plays an active role in safely organizing major festivals such as Chhath and Holi, ensuring traditional rituals are celebrated communally while avoiding commercial dilution.</li>
+                <li><strong>Traditional Music & Dance:</strong> We offer free evening classes to the youth teaching traditional Madhesi musical instruments and regional folk dances, creating a bridge between the elders and the new tech-savvy generation.</li>
+                <li><strong>Language & Literature:</strong> Recognizing the fading use of local dialects, we organize poetry symposiums and literature events to encourage youth to write and perform in their native tongue.</li>
+            </ul>
+
+            <p>
+                By elevating our art and culture, KYS instills a deep sense of pride and belonging among the youth of Kalikamai. This cultural confidence translates directly into stronger community participation and a unified, vibrant society.
+            </p>
+
+            <a href="work.html" class="btn btn-outline" style="margin-top: 2rem;">
+                <i class="fa-solid fa-arrow-left"></i> Back to All Works
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                </a>
+                <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
+                    communities through active youth participation.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Our Work</h3>
+                <ul>
+                    <li><a href="work.html">Community Development</a></li>
+                    <li><a href="work.html">Education & Health</a></li>
+                    <li><a href="work.html">Environment Action</a></li>
+                    <li><a href="work.html">Crisis Response</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#history">Our History</a></li>
+                    <li><a href="projects.html">Impact Stories</a></li>
+                    <li><a href="donate.html">Support Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope"></i> kalikamaiyouthsociety@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Kalikamai Youth Society. All Rights Reserved. Empowering Youth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -24,6 +24,8 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 image_url TEXT,
                 icon TEXT,
                 type TEXT,
+                location TEXT,
+                event_date TEXT,
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )`);
 
@@ -47,6 +49,31 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 email TEXT,
                 phone TEXT,
                 reason TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )`);
+
+            db.run(`CREATE TABLE IF NOT EXISTS contacts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT,
+                email TEXT,
+                message TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )`);
+
+            db.run(`CREATE TABLE IF NOT EXISTS settings (
+                key TEXT PRIMARY KEY,
+                value TEXT
+            )`, () => {
+                db.run(`INSERT OR IGNORE INTO settings (key, value) VALUES ('no_of_vacancies', '0')`);
+            });
+
+            db.run(`CREATE TABLE IF NOT EXISTS vacancies (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT,
+                description TEXT,
+                location TEXT,
+                type TEXT,
+                deadline TEXT,
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )`);
         });

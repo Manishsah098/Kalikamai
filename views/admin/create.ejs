@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post | Kalikamai</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 2rem; background: #f1f5f9; color: #334155; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        input[type="text"], select, textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; }
+        textarea { height: 200px; resize: vertical; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 5px; color: white; cursor: pointer; font-size: 1rem; text-decoration: none; display: inline-block; }
+        .btn-primary { background: #0ea5e9; }
+        .btn-secondary { background: #64748b; margin-right: 1rem; }
+        h1 { margin-top: 0; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Post</h1>
+        <form action="/admin/create" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select name="type" id="type" required>
+                    <option value="news">News</option>
+                    <option value="project">Project</option>
+                    <option value="work">Our Work</option>
+                    <option value="impact">Impact</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="subtitle">Subtitle / Excerpt</label>
+                <input type="text" id="subtitle" name="subtitle">
+            </div>
+            <div class="form-group">
+                <label for="content">Content (HTML allowed)</label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="e.g. Kalikamai RM-02, Parsa">
+            </div>
+            <div class="form-group">
+                <label for="event_date">Event Date</label>
+                <input type="date" id="event_date" name="event_date">
+            </div>
+            <div class="form-group">
+                <label for="image">Featured Image</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="icon">Icon Class (Only for 'Our Work', e.g. <code>fa-solid fa-users</code>)</label>
+                <input type="text" id="icon" name="icon">
+            </div>
+            <div>
+                <a href="/admin/dashboard" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save Post</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

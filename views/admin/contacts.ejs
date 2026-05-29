@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Messages | Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #f1f5f9; color: #334155; }
+        .sidebar { width: 250px; background: #1e293b; color: white; height: 100vh; position: fixed; padding-top: 2rem; }
+        .sidebar h2 { text-align: center; margin-bottom: 2rem; font-family: 'Outfit', sans-serif; }
+        .sidebar a { display: block; padding: 1rem 2rem; color: #cbd5e1; text-decoration: none; transition: 0.3s; }
+        .sidebar a:hover { background: #334155; color: white; }
+        .content { margin-left: 250px; padding: 2rem; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .btn { padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; color: white; font-weight: 500; }
+        .btn-primary { background: #0ea5e9; }
+        .btn-danger { background: #ef4444; border: none; cursor: pointer; }
+        .btn-edit { background: #f59e0b; }
+        table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f8fafc; font-weight: 600; }
+        .actions { display: flex; gap: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="/admin/dashboard"><i class="fa-solid fa-list"></i> Manage Posts</a>
+        <a href="/admin/members"><i class="fa-solid fa-users"></i> Manage Members</a>
+        <a href="/admin/volunteers"><i class="fa-solid fa-handshake"></i> Manage Volunteers</a>
+        <a href="/admin/contacts" class="active"><i class="fa-solid fa-envelope"></i> Manage Messages</a>
+        <a href="/admin/vacancies"><i class="fa-solid fa-briefcase"></i> Manage Vacancies</a>
+        <a href="/admin/logout"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+        <a href="/" target="_blank"><i class="fa-solid fa-external-link-alt"></i> View Site</a>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h1>Contact Messages</h1>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% contacts.forEach(contact => { %>
+                <tr>
+                    <td><%= contact.id %></td>
+                    <td><%= contact.name %></td>
+                    <td><%= contact.email %></td>
+                    <td><%= contact.message %></td>
+                    <td><%= new Date(contact.created_at).toLocaleDateString() %></td>
+                    <td class="actions">
+                        <form action="/admin/contacts/delete/<%= contact.id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i> Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+                <% if (contacts.length === 0) { %>
+                <tr>
+                    <td colspan="6" style="text-align: center; color: #94a3b8;">No contact messages received yet.</td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

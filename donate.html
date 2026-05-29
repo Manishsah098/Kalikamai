@@ -114,6 +114,212 @@
             border-radius: 20px;
             color: #94a3b8;
         }
+
+        /* Console Modal CSS */
+        .console-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .console-window {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(14, 165, 233, 0.1);
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            animation: consolePulse 4s infinite alternate;
+        }
+
+        @keyframes consolePulse {
+            0% { border-color: rgba(14, 165, 233, 0.3); }
+            100% { border-color: rgba(251, 191, 36, 0.3); }
+        }
+
+        .console-header-bar {
+            background: #0f172a;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+        }
+
+        .console-buttons {
+            display: flex;
+            gap: 8px;
+            margin-right: 1.5rem;
+        }
+
+        .console-buttons span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .close-dot { background: #ef4444; }
+        .minimize-dot { background: #eab308; }
+        .expand-dot { background: #22c55e; }
+
+        .console-title {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 3rem;
+        }
+
+        .console-body {
+            padding: 1.5rem;
+            color: #38bdf8;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .console-line {
+            display: flex;
+            align-items: center;
+        }
+
+        .text-cyan { color: #38bdf8; }
+        .text-amber { color: #fbbf24; }
+        .text-green { color: #4ade80; }
+        .text-white { color: #f8fafc; }
+
+        .console-content {
+            margin-top: 1rem;
+            border-left: 2px solid rgba(14, 165, 233, 0.3);
+            padding-left: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .console-input-line {
+            margin-top: auto;
+            color: #94a3b8;
+        }
+
+        .prompt {
+            color: #4ade80;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .blinking-cursor {
+            color: #38bdf8;
+            font-weight: bold;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .console-action-bar {
+            background: #0f172a;
+            padding: 1rem;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .console-btn {
+            font-family: 'Courier New', Courier, monospace;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .console-btn-primary {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .console-btn-primary:hover {
+            background: #0284c7;
+            transform: scale(1.05);
+        }
+
+        .console-btn-secondary {
+            background: rgba(148, 163, 184, 0.1);
+            color: #cbd5e1;
+            border-color: rgba(148, 163, 184, 0.3);
+        }
+
+        .console-btn-secondary:hover {
+            background: rgba(148, 163, 184, 0.2);
+            color: white;
+        }
+
+        /* Success Toast */
+        .console-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #0f172a;
+            border: 1px solid #4ade80;
+            color: #4ade80;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 10000;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Donate page responsive */
+        @media (max-width: 768px) {
+            .donation-header { padding: 7rem 0 4rem; }
+            .donation-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: -2rem;
+            }
+            .donation-card { padding: 2rem 1.5rem; }
+            .donation-icon { width: 60px; height: 60px; font-size: 2rem; }
+            .qr-section { padding: 3rem 0; }
+            .qr-section h2 { font-size: 1.8rem !important; }
+            .console-body { min-height: 200px; font-size: 0.85rem; padding: 1rem; }
+            .console-action-bar { flex-direction: column; }
+            .console-btn { width: 100%; text-align: center; }
+            .console-toast { bottom: 1rem; right: 1rem; left: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .donation-header { padding: 6rem 0 3.5rem; }
+            .donation-card { padding: 1.5rem 1.25rem; }
+            .donation-card h3 { font-size: 1.2rem; }
+            .bank-details { padding: 1rem; }
+            .bank-details p { font-size: 0.85rem; word-break: break-word; }
+            .console-body { font-size: 0.75rem; }
+        }
     </style>
 </head>
 
@@ -250,6 +456,200 @@
         </div>
     </footer>
 
+    <!-- Donation Console Modal -->
+    <div id="consoleModal" class="console-modal-overlay">
+        <div class="console-window">
+            <div class="console-header-bar">
+                <div class="console-buttons">
+                    <span class="close-dot"></span>
+                    <span class="minimize-dot"></span>
+                    <span class="expand-dot"></span>
+                </div>
+                <div class="console-title">KYS-Donation-Console (~/donate)</div>
+            </div>
+            <div class="console-body">
+                <div class="console-line text-cyan">> KYS Donation System Initialized...</div>
+                <div class="console-line">> Processing selected method...</div>
+                <div id="consoleOutput" class="console-content"></div>
+                <div class="console-line console-input-line">
+                    <span class="prompt">guest@kys:~$</span>
+                    <span id="consoleInteractive" class="console-input-text"></span>
+                    <span class="blinking-cursor">_</span>
+                </div>
+            </div>
+            <div class="console-action-bar" id="consoleActionBar">
+                <!-- Action buttons will be injected dynamically here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('consoleModal');
+            const closeDot = document.querySelector('.close-dot');
+            const output = document.getElementById('consoleOutput');
+            const interactive = document.getElementById('consoleInteractive');
+            const actionBar = document.getElementById('consoleActionBar');
+
+            // Donation Card Click Handler
+            const cards = document.querySelectorAll('.donation-card');
+            cards.forEach((card, index) => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    openConsole(index);
+                });
+            });
+
+            closeDot.addEventListener('click', closeConsole);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeConsole();
+            });
+
+            function showToast(message) {
+                // Remove existing toast if any
+                const existing = document.querySelector('.console-toast');
+                if (existing) existing.remove();
+
+                const toast = document.createElement('div');
+                toast.className = 'console-toast';
+                toast.innerHTML = `<span style="color: #4ade80;">[SUCCESS]</span> ${message}`;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transition = 'opacity 0.5s';
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000);
+            }
+
+            function copyText(text, label) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(`${label} copied to clipboard!`);
+                });
+            }
+
+            function openConsole(type) {
+                modal.style.display = 'flex';
+                output.innerHTML = '';
+                interactive.textContent = '';
+                actionBar.innerHTML = '';
+
+                let titleCmd = '';
+                let lines = [];
+                let actions = [];
+
+                if (type === 0) { // Bank Transfer
+                    titleCmd = 'cat bank_details.conf';
+                    lines = [
+                        { text: 'Loading Bank Deposit Configuration...', type: 'cyan' },
+                        { text: '======================================', type: 'white' },
+                        { text: 'BANK:         Rastriya Banijya Bank Ltd', type: 'amber' },
+                        { text: 'ACC NAME:     Kalikamai Youth Society', type: 'amber' },
+                        { text: 'ACC NUMBER:   172100000260001', type: 'green' },
+                        { text: 'BRANCH:       Pokariya Branch', type: 'amber' },
+                        { text: '======================================', type: 'white' },
+                        { text: 'Direct secure bank deposit ready for copy.', type: 'cyan' }
+                    ];
+                    actions = [
+                        {
+                            text: 'Copy Acc Number',
+                            handler: () => copyText('172100000260001', 'Account Number')
+                        },
+                        {
+                            text: 'Copy Bank Name',
+                            handler: () => copyText('Rastriya Banijya Bank Ltd', 'Bank Name')
+                        }
+                    ];
+                } else if (type === 1) { // Digital Wallets
+                    titleCmd = 'cat digital_wallets.conf';
+                    lines = [
+                        { text: 'Loading Wallet Gateway Protocols...', type: 'cyan' },
+                        { text: '======================================', type: 'white' },
+                        { text: 'eSewa ID:     +977-9763368173', type: 'green' },
+                        { text: 'Khalti ID:    +977-9763368173', type: 'green' },
+                        { text: 'NAME:         Kalikamai Youth Society', type: 'amber' },
+                        { text: '======================================', type: 'white' },
+                        { text: 'Tip: You can also scan the QR code below on this page!', type: 'cyan' }
+                    ];
+                    actions = [
+                        {
+                            text: 'Copy eSewa ID',
+                            handler: () => copyText('+977-9763368173', 'eSewa ID')
+                        },
+                        {
+                            text: 'Copy Khalti ID',
+                            handler: () => copyText('+977-9763368173', 'Khalti ID')
+                        }
+                    ];
+                } else { // Office Visit
+                    titleCmd = 'cat office_contact.conf';
+                    lines = [
+                        { text: 'Connecting to Location Services...', type: 'cyan' },
+                        { text: '======================================', type: 'white' },
+                        { text: 'OFFICE:       Kalikamai RM-02, Bhedihari, Parsa', type: 'amber' },
+                        { text: 'PHONE:        +977-9763368173', type: 'green' },
+                        { text: 'HOURS:        Sun-Fri (10:00 AM - 5:00 PM)', type: 'amber' },
+                        { text: '======================================', type: 'white' },
+                        { text: 'We welcome you to visit for physical donations/partnerships.', type: 'cyan' }
+                    ];
+                    actions = [
+                        {
+                            text: 'Copy Phone',
+                            handler: () => copyText('+977-9763368173', 'Phone number')
+                        },
+                        {
+                            text: 'Copy Location',
+                            handler: () => copyText('Kalikamai RM-02, Bhedihari, Parsa', 'Office location')
+                        }
+                    ];
+                }
+
+                // Simulate typing command
+                let charIndex = 0;
+                function typeCommand() {
+                    if (charIndex < titleCmd.length) {
+                        interactive.textContent += titleCmd[charIndex];
+                        charIndex++;
+                        setTimeout(typeCommand, 30);
+                    } else {
+                        // Type details line by line
+                        let lineIndex = 0;
+                        function printLines() {
+                            if (lineIndex < lines.length) {
+                                const line = lines[lineIndex];
+                                const div = document.createElement('div');
+                                div.className = `console-line text-${line.type}`;
+                                div.textContent = `> ${line.text}`;
+                                output.appendChild(div);
+                                lineIndex++;
+                                setTimeout(printLines, 80);
+                            } else {
+                                // Inject action buttons
+                                actions.forEach(act => {
+                                    const btn = document.createElement('button');
+                                    btn.className = 'console-btn console-btn-primary';
+                                    btn.textContent = act.text;
+                                    btn.addEventListener('click', act.handler);
+                                    actionBar.appendChild(btn);
+                                });
+
+                                const closeBtn = document.createElement('button');
+                                closeBtn.className = 'console-btn console-btn-secondary';
+                                closeBtn.textContent = 'Close';
+                                closeBtn.addEventListener('click', closeConsole);
+                                actionBar.appendChild(closeBtn);
+                            }
+                        }
+                        setTimeout(printLines, 150);
+                    }
+                }
+                setTimeout(typeCommand, 200);
+            }
+
+            function closeConsole() {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

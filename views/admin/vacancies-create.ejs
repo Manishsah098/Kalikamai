@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vacancy | Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #334155; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0; left: 0; z-index: 100;
+            display: flex; flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        .sidebar-brand {
+            padding: 1.5rem 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .sidebar-brand i { font-size: 1.5rem; color: #0ea5e9; }
+        .sidebar-brand h2 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; }
+        .sidebar-nav { flex: 1; padding: 1rem 0; overflow-y: auto; }
+        .sidebar-nav a {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.85rem 1.5rem; color: #94a3b8; text-decoration: none;
+            font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav a:hover { background: rgba(255,255,255,0.05); color: #e2e8f0; }
+        .sidebar-nav a.active { background: rgba(14,165,233,0.1); color: #fff; border-left-color: #0ea5e9; }
+        .sidebar-nav a i { width: 20px; text-align: center; font-size: 0.95rem; }
+        .sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .sidebar-footer a {
+            display: flex; align-items: center; gap: 0.75rem;
+            color: #64748b; text-decoration: none; font-size: 0.85rem; padding: 0.5rem 0; transition: color 0.2s;
+        }
+        .sidebar-footer a:hover { color: #e2e8f0; }
+
+        /* Mobile toggle */
+        .mobile-toggle {
+            display: none; position: fixed; top: 1rem; left: 1rem; z-index: 200;
+            background: #1e293b; color: white; border: none;
+            width: 44px; height: 44px; border-radius: 12px; font-size: 1.2rem; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .sidebar-overlay { display: none; position: fixed; top:0;left:0; width:100%;height:100%; background:rgba(0,0,0,0.4); z-index:99; }
+
+        /* Content */
+        .content { margin-left: 260px; padding: 2rem; min-height: 100vh; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: #0ea5e9; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Form card */
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            max-width: 850px;
+        }
+        .form-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+        .form-subtitle { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
+
+        .form-row { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .form-group { flex: 1; }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #374151;
+        }
+        label .required { color: #ef4444; }
+        .label-hint { font-weight: 400; color: #94a3b8; font-size: 0.8rem; margin-left: 0.25rem; }
+
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #334155;
+            background: #ffffff;
+            transition: all 0.2s;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+        }
+        input::placeholder, textarea::placeholder { color: #94a3b8; }
+        textarea { height: 180px; resize: vertical; line-height: 1.6; }
+        select { cursor: pointer; appearance: auto; }
+
+        /* Job type visual selector */
+        .type-selector { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .type-option {
+            flex: 1;
+            min-width: 110px;
+            padding: 0.85rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            background: #f8fafc;
+        }
+        .type-option:hover { border-color: #cbd5e1; }
+        .type-option.selected { border-color: #0ea5e9; background: #eff6ff; color: #0ea5e9; }
+        .type-option i { display: block; font-size: 1.3rem; margin-bottom: 0.4rem; }
+        .type-option input { display: none; }
+
+        /* Preview */
+        .preview-section {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        .preview-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            margin-bottom: 0.75rem;
+        }
+        .preview-title { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #0f172a; }
+        .preview-meta { font-size: 0.8rem; color: #64748b; margin-top: 0.5rem; }
+        .preview-desc { font-size: 0.85rem; color: #475569; margin-top: 0.5rem; line-height: 1.6; }
+
+        /* Actions */
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem; border-radius: 10px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            border: none; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .btn-primary { background: #0ea5e9; color: white; }
+        .btn-primary:hover { background: #0284c7; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(14,165,233,0.3); }
+        .btn-secondary { background: #f1f5f9; color: #475569; }
+        .btn-secondary:hover { background: #e2e8f0; }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.open { display: block; }
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+            .content { margin-left: 0; padding: 1.25rem; padding-top: 4rem; }
+            .form-card { padding: 1.5rem; }
+            .form-row { flex-direction: column; gap: 0; }
+            .form-group { margin-bottom: 1.25rem; }
+            .type-selector { flex-wrap: wrap; }
+            .type-option { min-width: calc(50% - 0.5rem); }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>KYS Admin</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard"><i class="fa-solid fa-newspaper"></i> Manage Posts</a>
+            <a href="/admin/members"><i class="fa-solid fa-users"></i> Manage Members</a>
+            <a href="/admin/volunteers"><i class="fa-solid fa-handshake-angle"></i> Volunteers</a>
+            <a href="/admin/contacts"><i class="fa-solid fa-envelope"></i> Messages</a>
+            <a href="/admin/vacancies" class="active"><i class="fa-solid fa-briefcase"></i> Vacancies</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/" target="_blank"><i class="fa-solid fa-external-link-alt"></i> View Site</a>
+            <a href="/admin/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="breadcrumb">
+            <a href="/admin/vacancies"><i class="fa-solid fa-briefcase"></i> Vacancies</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Add New</span>
+        </div>
+
+        <div class="form-card">
+            <h1 class="form-title"><i class="fa-solid fa-plus-circle" style="color: #0ea5e9;"></i> Add New Vacancy</h1>
+            <p class="form-subtitle">Fill in the details below. This vacancy will appear on the homepage for applicants.</p>
+
+            <form action="/admin/vacancies/create" method="POST" id="vacancyForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Job Title <span class="required">*</span></label>
+                        <input type="text" id="title" name="title" placeholder="e.g. Youth Program Coordinator" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label>Job Type <span class="required">*</span></label>
+                    <div class="type-selector">
+                        <label class="type-option selected" data-value="Full-Time">
+                            <input type="radio" name="type" value="Full-Time" checked>
+                            <i class="fa-solid fa-building"></i>
+                            Full-Time
+                        </label>
+                        <label class="type-option" data-value="Part-Time">
+                            <input type="radio" name="type" value="Part-Time">
+                            <i class="fa-solid fa-clock"></i>
+                            Part-Time
+                        </label>
+                        <label class="type-option" data-value="Internship">
+                            <input type="radio" name="type" value="Internship">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            Internship
+                        </label>
+                        <label class="type-option" data-value="Remote">
+                            <input type="radio" name="type" value="Remote">
+                            <i class="fa-solid fa-laptop-house"></i>
+                            Remote
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location <span class="required">*</span></label>
+                        <input type="text" id="location" name="location" placeholder="e.g. Kalikamai, Parsa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Application Deadline <span class="label-hint">(optional)</span></label>
+                        <input type="date" id="deadline" name="deadline">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="description">Job Description & Instructions <span class="required">*</span></label>
+                    <textarea id="description" name="description" placeholder="Describe the role, responsibilities, qualifications, and how to apply..." required></textarea>
+                </div>
+
+                <!-- Live Preview -->
+                <div class="preview-section" id="preview">
+                    <div class="preview-label"><i class="fa-solid fa-eye"></i> Live Preview</div>
+                    <div class="preview-title" id="previewTitle">Job Title</div>
+                    <div class="preview-meta" id="previewMeta">
+                        <i class="fa-solid fa-location-dot"></i> Location &nbsp;·&nbsp;
+                        <i class="fa-solid fa-briefcase"></i> Full-Time
+                    </div>
+                    <div class="preview-desc" id="previewDesc">Job description will appear here...</div>
+                </div>
+
+                <div class="form-actions">
+                    <a href="/admin/vacancies" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-left"></i> Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-check"></i> Save Vacancy
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Type selector
+        document.querySelectorAll('.type-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                document.querySelectorAll('.type-option').forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                opt.querySelector('input').checked = true;
+                updatePreview();
+            });
+        });
+
+        // Live preview
+        const titleInput = document.getElementById('title');
+        const locationInput = document.getElementById('location');
+        const descInput = document.getElementById('description');
+
+        [titleInput, locationInput, descInput].forEach(el => {
+            el.addEventListener('input', updatePreview);
+        });
+
+        function updatePreview() {
+            document.getElementById('previewTitle').textContent = titleInput.value || 'Job Title';
+            const type = document.querySelector('.type-option.selected')?.dataset.value || 'Full-Time';
+            document.getElementById('previewMeta').innerHTML =
+                `<i class="fa-solid fa-location-dot"></i> ${locationInput.value || 'Location'} &nbsp;·&nbsp; <i class="fa-solid fa-briefcase"></i> ${type}`;
+            document.getElementById('previewDesc').textContent = descInput.value || 'Job description will appear here...';
+        }
+
+        // Sidebar toggle
+        const toggle = document.getElementById('mobileToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        toggle.addEventListener('click', () => { sidebar.classList.toggle('open'); overlay.classList.toggle('open'); });
+        overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); });
+    </script>
+</body>
+</html>

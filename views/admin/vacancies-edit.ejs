@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Vacancy | Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #334155; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0; left: 0; z-index: 100;
+            display: flex; flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        .sidebar-brand {
+            padding: 1.5rem 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .sidebar-brand i { font-size: 1.5rem; color: #0ea5e9; }
+        .sidebar-brand h2 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; }
+        .sidebar-nav { flex: 1; padding: 1rem 0; overflow-y: auto; }
+        .sidebar-nav a {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.85rem 1.5rem; color: #94a3b8; text-decoration: none;
+            font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav a:hover { background: rgba(255,255,255,0.05); color: #e2e8f0; }
+        .sidebar-nav a.active { background: rgba(14,165,233,0.1); color: #fff; border-left-color: #0ea5e9; }
+        .sidebar-nav a i { width: 20px; text-align: center; font-size: 0.95rem; }
+        .sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .sidebar-footer a {
+            display: flex; align-items: center; gap: 0.75rem;
+            color: #64748b; text-decoration: none; font-size: 0.85rem; padding: 0.5rem 0; transition: color 0.2s;
+        }
+        .sidebar-footer a:hover { color: #e2e8f0; }
+
+        /* Mobile toggle */
+        .mobile-toggle {
+            display: none; position: fixed; top: 1rem; left: 1rem; z-index: 200;
+            background: #1e293b; color: white; border: none;
+            width: 44px; height: 44px; border-radius: 12px; font-size: 1.2rem; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .sidebar-overlay { display: none; position: fixed; top:0;left:0; width:100%;height:100%; background:rgba(0,0,0,0.4); z-index:99; }
+
+        /* Content */
+        .content { margin-left: 260px; padding: 2rem; min-height: 100vh; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: #0ea5e9; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Form card */
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            max-width: 850px;
+        }
+        .form-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+        .form-subtitle { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
+
+        /* Info banner */
+        .info-banner {
+            display: flex; align-items: center; gap: 0.75rem;
+            background: #eff6ff; border: 1px solid #bfdbfe;
+            border-radius: 12px; padding: 0.85rem 1.25rem;
+            margin-bottom: 2rem; font-size: 0.85rem; color: #1e40af;
+        }
+        .info-banner i { font-size: 1rem; flex-shrink: 0; }
+
+        .form-row { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .form-group { flex: 1; }
+
+        label {
+            display: block; margin-bottom: 0.5rem;
+            font-weight: 600; font-size: 0.85rem; color: #374151;
+        }
+        label .required { color: #ef4444; }
+        .label-hint { font-weight: 400; color: #94a3b8; font-size: 0.8rem; margin-left: 0.25rem; }
+
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #334155;
+            background: #ffffff;
+            transition: all 0.2s;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+        }
+        input::placeholder, textarea::placeholder { color: #94a3b8; }
+        textarea { height: 180px; resize: vertical; line-height: 1.6; }
+        select { cursor: pointer; appearance: auto; }
+
+        /* Job type visual selector */
+        .type-selector { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .type-option {
+            flex: 1; min-width: 110px;
+            padding: 0.85rem 1rem;
+            border: 2px solid #e2e8f0; border-radius: 12px;
+            text-align: center; cursor: pointer; transition: all 0.2s;
+            font-size: 0.85rem; font-weight: 600; color: #475569; background: #f8fafc;
+        }
+        .type-option:hover { border-color: #cbd5e1; }
+        .type-option.selected { border-color: #0ea5e9; background: #eff6ff; color: #0ea5e9; }
+        .type-option i { display: block; font-size: 1.3rem; margin-bottom: 0.4rem; }
+        .type-option input { display: none; }
+
+        /* Actions */
+        .form-actions {
+            display: flex; align-items: center; gap: 1rem;
+            margin-top: 2rem; padding-top: 1.5rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem; border-radius: 10px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            border: none; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .btn-primary { background: #0ea5e9; color: white; }
+        .btn-primary:hover { background: #0284c7; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(14,165,233,0.3); }
+        .btn-secondary { background: #f1f5f9; color: #475569; }
+        .btn-secondary:hover { background: #e2e8f0; }
+        .btn-danger-outline {
+            background: transparent; color: #ef4444;
+            border: 2px solid #fecaca; margin-left: auto;
+        }
+        .btn-danger-outline:hover { background: #fef2f2; }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.open { display: block; }
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+            .content { margin-left: 0; padding: 1.25rem; padding-top: 4rem; }
+            .form-card { padding: 1.5rem; }
+            .form-row { flex-direction: column; gap: 0; }
+            .form-group { margin-bottom: 1.25rem; }
+            .type-option { min-width: calc(50% - 0.5rem); }
+            .form-actions { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>KYS Admin</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard"><i class="fa-solid fa-newspaper"></i> Manage Posts</a>
+            <a href="/admin/members"><i class="fa-solid fa-users"></i> Manage Members</a>
+            <a href="/admin/volunteers"><i class="fa-solid fa-handshake-angle"></i> Volunteers</a>
+            <a href="/admin/contacts"><i class="fa-solid fa-envelope"></i> Messages</a>
+            <a href="/admin/vacancies" class="active"><i class="fa-solid fa-briefcase"></i> Vacancies</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/" target="_blank"><i class="fa-solid fa-external-link-alt"></i> View Site</a>
+            <a href="/admin/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="breadcrumb">
+            <a href="/admin/vacancies"><i class="fa-solid fa-briefcase"></i> Vacancies</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Edit: <%= vacancy.title %></span>
+        </div>
+
+        <div class="form-card">
+            <h1 class="form-title"><i class="fa-solid fa-pen-to-square" style="color: #f59e0b;"></i> Edit Vacancy</h1>
+            <p class="form-subtitle">Update the vacancy details below. Changes will be reflected on the website immediately.</p>
+
+            <div class="info-banner">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Editing vacancy #<%= vacancy.id %> — Created on <%= new Date(vacancy.created_at).toLocaleDateString(undefined, {month: 'long', day: 'numeric', year: 'numeric'}) %></span>
+            </div>
+
+            <form action="/admin/vacancies/edit/<%= vacancy.id %>" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Job Title <span class="required">*</span></label>
+                        <input type="text" id="title" name="title" value="<%= vacancy.title %>" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label>Job Type <span class="required">*</span></label>
+                    <div class="type-selector">
+                        <label class="type-option <%= vacancy.type === 'Full-Time' ? 'selected' : '' %>" data-value="Full-Time">
+                            <input type="radio" name="type" value="Full-Time" <%= vacancy.type === 'Full-Time' ? 'checked' : '' %>>
+                            <i class="fa-solid fa-building"></i>
+                            Full-Time
+                        </label>
+                        <label class="type-option <%= vacancy.type === 'Part-Time' ? 'selected' : '' %>" data-value="Part-Time">
+                            <input type="radio" name="type" value="Part-Time" <%= vacancy.type === 'Part-Time' ? 'checked' : '' %>>
+                            <i class="fa-solid fa-clock"></i>
+                            Part-Time
+                        </label>
+                        <label class="type-option <%= vacancy.type === 'Internship' ? 'selected' : '' %>" data-value="Internship">
+                            <input type="radio" name="type" value="Internship" <%= vacancy.type === 'Internship' ? 'checked' : '' %>>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            Internship
+                        </label>
+                        <label class="type-option <%= vacancy.type === 'Remote' ? 'selected' : '' %>" data-value="Remote">
+                            <input type="radio" name="type" value="Remote" <%= vacancy.type === 'Remote' ? 'checked' : '' %>>
+                            <i class="fa-solid fa-laptop-house"></i>
+                            Remote
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location <span class="required">*</span></label>
+                        <input type="text" id="location" name="location" value="<%= vacancy.location %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Application Deadline <span class="label-hint">(optional)</span></label>
+                        <input type="date" id="deadline" name="deadline" value="<%= vacancy.deadline || '' %>">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="description">Job Description & Instructions <span class="required">*</span></label>
+                    <textarea id="description" name="description" required><%= vacancy.description %></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <a href="/admin/vacancies" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-left"></i> Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-check"></i> Update Vacancy
+                    </button>
+                    <button type="button" class="btn btn-danger-outline" onclick="if(confirm('Are you sure you want to permanently delete this vacancy?')) { document.getElementById('deleteForm').submit(); }">
+                        <i class="fa-solid fa-trash-can"></i> Delete
+                    </button>
+                </div>
+            </form>
+
+            <!-- Hidden delete form -->
+            <form id="deleteForm" action="/admin/vacancies/delete/<%= vacancy.id %>" method="POST" style="display: none;"></form>
+        </div>
+    </div>
+
+    <script>
+        // Type selector
+        document.querySelectorAll('.type-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                document.querySelectorAll('.type-option').forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                opt.querySelector('input').checked = true;
+            });
+        });
+
+        // Sidebar toggle
+        const toggle = document.getElementById('mobileToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        toggle.addEventListener('click', () => { sidebar.classList.toggle('open'); overlay.classList.toggle('open'); });
+        overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); });
+    </script>
+</body>
+</html>

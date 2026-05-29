@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Kalikamai Youth Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="back-btn-container">
+        <button onclick="window.history.back()" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> <span>Go Back</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+            <span class="logo-text">Kalikamai Youth<br>Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="/about.html">About Us</a>
+                <a href="/work.html">Our Work</a>
+                <a href="/members.html">Our Members</a>
+                <a href="/impact.html">Our Impact</a>
+                <a href="/projects.html" class="active">Projects</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/admin/login" class="btn btn-outline">Login</a>
+                <a href="/donate.html" class="btn btn-primary">Support Us</a>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Projects</h1>
+            <p>Catch up on our latest stories, events, and ground operations in Kalikamai.</p>
+        </div>
+    </header>
+
+    <!-- Projects / News Section -->
+    <section class="section news-section" id="projects">
+        <div class="container">
+            <div class="news-grid-v2 mt-5">
+                <% posts.forEach(post => { %>
+                <article class="news-card-v2">
+                    <a href="/news/<%= post.id %>" class="news-card-image-wrap">
+                        <% if (post.image_url) { %>
+                            <img src="/<%= post.image_url %>" alt="<%= post.title %>">
+                        <% } else { %>
+                            <div style="background: #e2e8f0; height: 200px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+                                <i class="fa-solid fa-newspaper" style="font-size: 3rem;"></i>
+                            </div>
+                        <% } %>
+                    </a>
+                    <h3><%= post.title %></h3>
+                    <p style="margin-top: 1rem; color: #64748b; font-size: 0.95rem;"><%= post.subtitle %></p>
+                    <a href="/news/<%= post.id %>" class="btn-read-more">Read Story <i class="fa-solid fa-long-arrow-right"></i></a>
+                </article>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2>Your Little Step Can Make a Huge Impact!</h2>
+            <p>Join us as a volunteer, a partner, or support our causes to bring a positive change in the society.</p>
+            <div class="cta-buttons">
+                <a href="/donate.html" class="btn btn-primary btn-lg">Donate Now</a>
+                <a href="#" class="btn btn-secondary btn-lg cta-join">Become a Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="/" class="logo footer-logo">
+                    <img src="/assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                </a>
+                <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
+                    communities through active youth participation.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Our Work</h3>
+                <ul>
+                    <li><a href="/work.html">Community Development</a></li>
+                    <li><a href="/work.html">Education & Health</a></li>
+                    <li><a href="/work.html">Environment Action</a></li>
+                    <li><a href="/work.html">Crisis Response</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/about.html#history">Our History</a></li>
+                    <li><a href="/projects.html">Impact Stories</a></li>
+                    <li><a href="/donate.html">Support Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope"></i> kalikamaiyouthsociety@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Kalikamai Youth Society. All Rights Reserved. Empowering Youth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

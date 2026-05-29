@@ -36,6 +36,18 @@
         .story-content strong {
             color: #1e293b;
         }
+
+        @media (max-width: 768px) {
+            .story-container { padding: 3rem 1.25rem; }
+            .story-content { font-size: 1rem; line-height: 1.8; }
+            .story-content h2 { font-size: 1.4rem; margin: 2rem 0 1rem; }
+            .story-featured-img { border-radius: 14px; margin-bottom: 2rem; }
+        }
+        @media (max-width: 480px) {
+            .story-container { padding: 2rem 1rem; }
+            .story-content { font-size: 0.95rem; }
+            .story-content h2 { font-size: 1.25rem; }
+        }
     </style>
 </head>
 
@@ -63,6 +75,7 @@
                 <a href="contact.html">Contact</a>
             </div>
             <div class="nav-actions">
+                <a href="/admin/login" class="btn btn-outline">Login</a>
                 <a href="donate.html" class="btn btn-primary">Support Us</a>
                 <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
             </div>

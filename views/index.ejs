@@ -553,17 +553,13 @@
                                         <% } %>
                                     </div>
                                 </div>
-                                <span style="padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-                                    <% if (vacancy.type === 'Full-Time') { %>
-                                        background: #dbeafe; color: #1e40af;
-                                    <% } else if (vacancy.type === 'Part-Time') { %>
-                                        background: #fef3c7; color: #92400e;
-                                    <% } else if (vacancy.type === 'Internship') { %>
-                                        background: #d1fae5; color: #065f46;
-                                    <% } else { %>
-                                        background: #f3e8ff; color: #6b21a8;
-                                    <% } %>
-                                "><%= vacancy.type %></span>
+                                <% 
+                                    let badgeStyleAttr = 'style="padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #f3e8ff; color: #6b21a8;"';
+                                    if (vacancy.type === 'Full-Time') badgeStyleAttr = 'style="padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #dbeafe; color: #1e40af;"';
+                                    else if (vacancy.type === 'Part-Time') badgeStyleAttr = 'style="padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #fef3c7; color: #92400e;"';
+                                    else if (vacancy.type === 'Internship') badgeStyleAttr = 'style="padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #d1fae5; color: #065f46;"';
+                                %>
+                                <span <%- badgeStyleAttr %>><%= vacancy.type %></span>
                             </div>
                             <p style="margin: 0; color: #475569; font-size: 0.95rem; line-height: 1.6; white-space: pre-line;"><%= vacancy.description %></p>
                             <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem; display: flex; justify-content: flex-end;">

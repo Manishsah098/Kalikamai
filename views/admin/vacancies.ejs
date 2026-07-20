@@ -258,6 +258,7 @@
             margin-bottom: 1rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -390,8 +391,9 @@
                         else if (vacancy.type === 'Remote') { iconClass = 'remote'; badgeClass = 'badge-remote'; iconSymbol = 'fa-laptop-house'; }
 
                         const isExpired = vacancy.deadline && new Date(vacancy.deadline) < new Date();
+                        const cardStyleAttr = isExpired ? 'style="opacity: 0.7;"' : '';
                     %>
-                    <div class="vacancy-card" style="<%= isExpired ? 'opacity: 0.7;' : '' %>">
+                    <div class="vacancy-card" <%- cardStyleAttr %>>
                         <div class="vacancy-icon <%= iconClass %>">
                             <i class="fa-solid <%= iconSymbol %>"></i>
                         </div>
@@ -422,8 +424,9 @@
                                 <a href="/admin/vacancies/edit/<%= vacancy.id %>" class="btn btn-edit btn-sm">
                                     <i class="fa-solid fa-pen-to-square"></i> Edit
                                 </a>
+                                <% const escapedTitle = vacancy.title.replace(/'/g, "\\'"); %>
                                 <form action="/admin/vacancies/delete/<%= vacancy.id %>" method="POST" class="delete-form"
-                                      onsubmit="return confirm('Are you sure you want to delete the vacancy: <%= vacancy.title.replace(/'/g, "\\'") %>?')">
+                                      onsubmit="return confirm('Are you sure you want to delete the vacancy: <%= escapedTitle %>?')">
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         <i class="fa-solid fa-trash-can"></i> Delete
                                     </button>

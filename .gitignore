@@ -1,0 +1,69 @@
+# ========================
+# Node.js
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# ========================
+# Database
+# ========================
+*.sqlite
+*.sqlite3
+*.db
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.local
+.env.*.local
+
+# ========================
+# Uploaded Assets (optional)
+# Keep original assets but ignore user-uploaded files
+# ========================
+# Uncomment below if you want to ignore uploaded images:
+# assets/*.jpeg
+# assets/*.jpg
+# assets/*.png
+# assets/*.gif
+# assets/*.webp
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# VS Code
+# ========================
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# ========================
+# Logs
+# ========================
+logs/
+*.log
+
+# ========================
+# Backup / Temp Files
+# ========================
+*.bak
+*.tmp
+*.swp
+*~
+
+# ========================
+# Build / Cache
+# ========================
+.cache/
+dist/
+build/

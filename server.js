@@ -108,6 +108,10 @@ app.get('/members.html', (req, res) => {
     });
 });
 
+app.get('/developer.html', (req, res) => {
+    res.render('developer');
+});
+
 app.get('/news/:id', (req, res) => {
     db.get(`SELECT * FROM posts WHERE id = ?`, [req.params.id], (err, row) => {
         if (err || !row) {
@@ -339,9 +343,9 @@ app.get('/admin/vacancies/create', requireAuth, (req, res) => {
 });
 
 app.post('/admin/vacancies/create', requireAuth, (req, res) => {
-    const { title, description, location, type, deadline } = req.body;
-    db.run(`INSERT INTO vacancies (title, description, location, type, deadline) VALUES (?, ?, ?, ?, ?)`,
-        [title, description, location, type, deadline],
+    const { title, description, location, type, deadline, num_openings } = req.body;
+    db.run(`INSERT INTO vacancies (title, description, location, type, deadline, num_openings) VALUES (?, ?, ?, ?, ?, ?)`,
+        [title, description, location, type, deadline, num_openings || 1],
         (err) => {
             if (err) console.error(err);
             res.redirect('/admin/vacancies');
@@ -357,10 +361,10 @@ app.get('/admin/vacancies/edit/:id', requireAuth, (req, res) => {
 });
 
 app.post('/admin/vacancies/edit/:id', requireAuth, (req, res) => {
-    const { title, description, location, type, deadline } = req.body;
+    const { title, description, location, type, deadline, num_openings } = req.body;
     const id = req.params.id;
-    db.run(`UPDATE vacancies SET title = ?, description = ?, location = ?, type = ?, deadline = ? WHERE id = ?`,
-        [title, description, location, type, deadline, id],
+    db.run(`UPDATE vacancies SET title = ?, description = ?, location = ?, type = ?, deadline = ?, num_openings = ? WHERE id = ?`,
+        [title, description, location, type, deadline, num_openings || 1, id],
         (err) => {
             if (err) console.error(err);
             res.redirect('/admin/vacancies');

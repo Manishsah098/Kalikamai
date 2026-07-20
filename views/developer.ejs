@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer | Kalikamai Youth Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .dev-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0ea5e9 100%); padding: 10rem 0 5rem; position: relative; overflow: hidden; }
+        .dev-header::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 80px; background: #f8fafc; clip-path: ellipse(55% 100% at 50% 100%); }
+        .dev-header h1 { color: #ffffff; font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; text-align: center; margin: 0 0 1rem 0; font-family: var(--font-heading), 'Outfit', sans-serif; }
+        .dev-section { padding: 5rem 0 7rem; background-color: #f8fafc; display: flex; justify-content: center; }
+        .dev-card { background: #ffffff; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); padding: 3rem 2rem; text-align: center; max-width: 500px; width: 100%; border: 1px solid rgba(0, 0, 0, 0.04); position: relative; overflow: hidden; }
+        .dev-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0ea5e9, #fca311); }
+        .dev-avatar { width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 2rem; overflow: hidden; border: 4px solid #e2e8f0; background: linear-gradient(135deg, #e2e8f0, #cbd5e1); display: flex; align-items: center; justify-content: center; }
+        .dev-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transform: scale(1.35); }
+        .dev-role { display: inline-block; background: linear-gradient(135deg, #0ea5e9, #0284c7); color: white; font-size: 0.85rem; font-weight: 700; padding: 0.4rem 1.2rem; border-radius: 50px; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .dev-name { font-family: var(--font-heading, 'Outfit', sans-serif); font-size: 2rem; color: #1E293B; font-weight: 700; margin-bottom: 1.5rem; }
+        .dev-contact { color: #64748b; font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.8rem; font-weight: 500; }
+        .dev-contact i { color: #0ea5e9; font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+
+    <div class="back-btn-container">
+        <button onclick="window.history.back()" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> <span>Go Back</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                <span class="logo-text">Kalikamai Youth<br>Society</span>
+            </a>
+            <div class="nav-links">
+                <a href="/about.html">About Us</a>
+                <a href="/work.html">Our Work</a>
+                <a href="/members.html">Our Members</a>
+                <a href="/impact.html">Our Impact</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/admin/login" class="btn btn-outline">Login</a>
+                <a href="/donate.html" class="btn btn-primary">Support Us</a>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="dev-header">
+        <div class="container">
+            <h1>Meet The Developer</h1>
+        </div>
+    </header>
+
+    <!-- Developer Section -->
+    <section class="dev-section">
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="dev-card">
+                <div class="dev-avatar">
+                    <img src="/assets/developer.jpg" alt="Manish Kumar Sah" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fa-solid fa-laptop-code\' style=\'font-size: 4rem; color: #94a3b8;\'></i>';">
+                </div>
+                <span class="dev-role">Fullstack Developer</span>
+                <h3 class="dev-name">Manish Kumar Sah</h3>
+                <p class="dev-contact"><i class="fa-brands fa-whatsapp"></i> +977 9811807618</p>
+                <p class="dev-contact"><i class="fa-solid fa-phone"></i> +91 7250140014</p>
+                
+                <div class="dev-socials" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                    <a href="https://www.facebook.com/share/1BrpTHK33A/" target="_blank" rel="noopener noreferrer" style="color: #64748b; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/manishshah2332?igsh=ajN1emN1bXF2aG1p" target="_blank" rel="noopener noreferrer" style="color: #64748b; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='#e1306c'" onmouseout="this.style.color='#64748b'"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/manish-kumar-sah-917116367?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" style="color: #64748b; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='#0a66c2'" onmouseout="this.style.color='#64748b'"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:example@gmail.com" style="color: #64748b; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='#ea4335'" onmouseout="this.style.color='#64748b'"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div style="border-top: 1px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1rem;">
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.5;">
+                        For free website and web application contact us.<br>
+                        <strong style="color: #1e293b; display: inline-block; margin-top: 0.5rem;">Founder of Bikrama Technosoft.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="/" class="logo footer-logo">
+                    <img src="/assets/logo.jpeg" alt="Kalikamai Youth Society" class="logo-img">
+                </a>
+                <p>Kalikamai Youth Society is dedicated to inspiring change, transforming lives, and fostering resilient
+                    communities through active youth participation.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Our Work</h3>
+                <ul>
+                    <li><a href="/work.html">Community Development</a></li>
+                    <li><a href="/work.html">Education & Health</a></li>
+                    <li><a href="/work.html">Environment Action</a></li>
+                    <li><a href="/work.html">Crisis Response</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/about.html#history">Our History</a></li>
+                    <li><a href="/projects.html">Impact Stories</a></li>
+                    <li><a href="/donate.html">Support Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-map-pin"></i> Kalikamai RM-02 (Bhedihari), Parsa</p>
+                <p><i class="fa-solid fa-phone"></i> +977-9763368173</p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> 
+                        <a href="mailto:kalikamaiyouthsociety@gmail.com"
+                            style="color: inherit; text-decoration: none;">kalikamaiyouthsociety@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Kalikamai Youth Society. All Rights Reserved. Empowering Youth. | 
+                        <a href="/developer.html" style="color: #0ea5e9; text-decoration: none;">Developer Info</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

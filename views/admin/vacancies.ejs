@@ -144,6 +144,7 @@
         }
         .stat-icon.blue { background: #dbeafe; color: #2563eb; }
         .stat-icon.green { background: #dcfce7; color: #16a34a; }
+        .stat-icon.purple { background: #f3e8ff; color: #7c3aed; }
         .stat-icon.amber { background: #fef3c7; color: #d97706; }
         .stat-value { font-size: 1.5rem; font-weight: 700; color: #0f172a; font-family: 'Outfit', sans-serif; }
         .stat-label { font-size: 0.8rem; color: #64748b; margin-top: 0.1rem; }
@@ -352,6 +353,14 @@
                 </div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon purple"><i class="fa-solid fa-users"></i></div>
+                <div>
+                    <% const totalPositions = vacancies.reduce((sum, v) => sum + (v.num_openings || 1), 0); %>
+                    <div class="stat-value"><%= totalPositions %></div>
+                    <div class="stat-label">Total Positions</div>
+                </div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-icon amber"><i class="fa-solid fa-clock"></i></div>
                 <div>
                     <div class="stat-value"><%= vacancies.length - activeCount %></div>
@@ -400,6 +409,7 @@
                             </div>
                             <div class="vacancy-meta">
                                 <span><i class="fa-solid fa-location-dot"></i> <%= vacancy.location || 'Not specified' %></span>
+                                <span><i class="fa-solid fa-users"></i> <%= vacancy.num_openings || 1 %> Position<%= (vacancy.num_openings || 1) > 1 ? 's' : '' %></span>
                                 <% if (vacancy.deadline) { %>
                                     <span><i class="fa-solid fa-calendar-days"></i> Deadline: <%= new Date(vacancy.deadline).toLocaleDateString(undefined, {month: 'short', day: 'numeric', year: 'numeric'}) %></span>
                                 <% } else { %>

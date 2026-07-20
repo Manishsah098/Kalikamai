@@ -102,7 +102,7 @@
         label .required { color: #ef4444; }
         .label-hint { font-weight: 400; color: #94a3b8; font-size: 0.8rem; margin-left: 0.25rem; }
 
-        input[type="text"], input[type="date"], select, textarea {
+        input[type="text"], input[type="date"], input[type="number"], select, textarea {
             width: 100%;
             padding: 0.75rem 1rem;
             border: 2px solid #e2e8f0;
@@ -254,6 +254,14 @@
                         <label for="deadline">Application Deadline <span class="label-hint">(optional)</span></label>
                         <input type="date" id="deadline" name="deadline" value="<%= vacancy.deadline || '' %>">
                     </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="num_openings">Number of Employees <span class="required">*</span></label>
+                        <input type="number" id="num_openings" name="num_openings" value="<%= vacancy.num_openings || 1 %>" min="1" max="100" required>
+                    </div>
+                    <div class="form-group"></div>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 1rem;">

@@ -7,20 +7,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #f1f5f9; color: #334155; }
-        .sidebar { width: 250px; background: #1e293b; color: white; height: 100vh; position: fixed; padding-top: 2rem; }
-        .sidebar h2 { text-align: center; margin-bottom: 2rem; font-family: 'Outfit', sans-serif; }
-        .sidebar a { display: block; padding: 1rem 2rem; color: #cbd5e1; text-decoration: none; transition: 0.3s; }
-        .sidebar a:hover { background: #334155; color: white; }
-        .content { margin-left: 250px; padding: 2rem; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-        .btn { padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; color: white; font-weight: 500; }
-        .btn-primary { background: #0ea5e9; }
-        .btn-danger { background: #ef4444; border: none; cursor: pointer; }
-        .btn-edit { background: #f59e0b; }
-        table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background: #f8fafc; font-weight: 600; }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #334155; }
+        
+        /* Entrance Animation */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animated-entry {
+            animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Sidebar Styling */
+        .sidebar { width: 260px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: white; height: 100vh; position: fixed; padding-top: 2rem; box-shadow: 4px 0 15px rgba(0,0,0,0.05); z-index: 100; }
+        .sidebar h2 { text-align: center; margin-bottom: 2.5rem; font-family: 'Outfit', sans-serif; font-size: 1.8rem; letter-spacing: -0.5px; color: #f8fafc; }
+        .sidebar a { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; color: #94a3b8; text-decoration: none; transition: all 0.3s ease; font-weight: 500; border-left: 4px solid transparent; }
+        .sidebar a:hover { background: rgba(255,255,255,0.05); color: #0ea5e9; padding-left: 2.5rem; }
+        .sidebar a.active { background: rgba(14, 165, 233, 0.1); color: #0ea5e9; border-left-color: #0ea5e9; }
+        .sidebar i { font-size: 1.1rem; width: 20px; text-align: center; }
+        
+        /* Content Area */
+        .content { margin-left: 260px; padding: 3rem; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }
+        .header h1 { font-family: 'Outfit', sans-serif; font-size: 2.2rem; color: #0f172a; margin: 0; }
+        
+        /* Buttons */
+        .btn { padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; color: white; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; border: none; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .btn-primary { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+        .btn-primary:hover { background: linear-gradient(135deg, #38bdf8, #0369a1); }
+        .btn-danger { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .btn-edit { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        
+        /* Table Styling */
+        .table-container { background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.03); border-radius: 16px; overflow: hidden; border: 1px solid #f1f5f9; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0; }
+        th, td { padding: 1.2rem 1.5rem; text-align: left; border-bottom: 1px solid #f1f5f9; }
+        th { background: #f8fafc; font-weight: 600; color: #475569; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }
+        tr { transition: background-color 0.2s ease; }
+        tbody tr:hover { background-color: #f8fafc; }
+        tbody tr:last-child td { border-bottom: none; }
+        td { color: #334155; font-size: 0.95rem; }
+        .type-badge { padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0284c7; }
         .actions { display: flex; gap: 0.5rem; }
     </style>
 </head>
@@ -35,28 +63,29 @@
         <a href="/admin/logout"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
         <a href="/" target="_blank"><i class="fa-solid fa-external-link-alt"></i> View Site</a>
     </div>
-    <div class="content">
+    <div class="content animated-entry">
         <div class="header">
             <h1>Posts Management</h1>
             <a href="/admin/create" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add New Post</a>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>Title</th>
-                    <th>Location</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% posts.forEach(post => { %>
-                <tr>
-                    <td><%= post.id %></td>
-                    <td><%= post.type %></td>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% posts.forEach(post => { %>
+                    <tr>
+                        <td><%= post.id %></td>
+                        <td><span class="type-badge"><%= post.type %></span></td>
                     <td><%= post.title %></td>
                     <td><%= post.location || 'N/A' %></td>
                     <td><%= post.event_date ? new Date(post.event_date).toLocaleDateString() : new Date(post.created_at).toLocaleDateString() %></td>
@@ -66,10 +95,11 @@
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i> Delete</button>
                         </form>
                     </td>
-                </tr>
-                <% }) %>
-            </tbody>
-        </table>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

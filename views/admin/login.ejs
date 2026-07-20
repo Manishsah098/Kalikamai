@@ -4,35 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login | Kalikamai</title>
-    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8fafc; }
-        .login-box { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
-        .login-box h2 { text-align: center; margin-bottom: 1.5rem; color: #1e293b; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: #475569; }
-        .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 5px; }
-        .btn-submit { width: 100%; padding: 0.75rem; background: #0ea5e9; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
-        .error { color: #ef4444; margin-bottom: 1rem; text-align: center; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; 
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0ea5e9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Background decorative elements */
+        body::before, body::after {
+            content: ''; position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0;
+        }
+        body::before {
+            width: 400px; height: 400px; background: rgba(14, 165, 233, 0.4); top: -100px; left: -100px;
+        }
+        body::after {
+            width: 300px; height: 300px; background: rgba(252, 163, 17, 0.3); bottom: -50px; right: -50px;
+        }
+        
+        .login-wrapper {
+            position: relative; z-index: 10; width: 100%; max-width: 420px; padding: 20px;
+        }
+        .login-box { 
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2.5rem; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.2) inset;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        .login-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.3) inset;
+        }
+        
+        .logo-container { text-align: center; margin-bottom: 1.5rem; }
+        .logo-icon { 
+            font-size: 2.5rem; color: #0ea5e9; margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        
+        .login-box h2 { 
+            text-align: center; margin-bottom: 2rem; color: #1e293b; 
+            font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; 
+            letter-spacing: -0.5px;
+        }
+        
+        .form-group { margin-bottom: 1.5rem; position: relative; }
+        .form-group i { 
+            position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); 
+            color: #94a3b8; transition: color 0.3s ease; 
+        }
+        .form-group input { 
+            width: 100%; padding: 1rem 1rem 1rem 3rem; 
+            border: 2px solid #e2e8f0; border-radius: 12px; 
+            font-size: 1rem; color: #334155; font-family: 'Inter', sans-serif;
+            background: #f8fafc; transition: all 0.3s ease; 
+        }
+        .form-group input:focus { 
+            outline: none; border-color: #0ea5e9; background: white;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+        }
+        .form-group input:focus + i, .form-group input:valid + i { color: #0ea5e9; }
+        
+        /* Floating Labels */
+        .form-group label {
+            position: absolute; left: 3rem; top: 50%; transform: translateY(-50%);
+            color: #94a3b8; font-size: 1rem; pointer-events: none; transition: 0.3s ease all;
+        }
+        .form-group input:focus ~ label, .form-group input:valid ~ label {
+            top: -10px; left: 10px; font-size: 0.8rem; font-weight: 600; color: #0ea5e9;
+            background: rgba(255,255,255,0.9); padding: 0 5px; border-radius: 4px;
+        }
+
+        .btn-submit { 
+            width: 100%; padding: 1rem; 
+            background: linear-gradient(135deg, #0ea5e9, #0284c7); 
+            color: white; border: none; border-radius: 12px; 
+            cursor: pointer; font-size: 1.1rem; font-weight: 600; font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+        }
+        .btn-submit::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5); }
+        .btn-submit:hover::after { left: 150%; }
+        .btn-submit:active { transform: translateY(1px); }
+        
+        .error { 
+            background: #fef2f2; border-left: 4px solid #ef4444; color: #b91c1c; 
+            padding: 1rem; margin-bottom: 1.5rem; border-radius: 8px; 
+            font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+        
+        .back-link {
+            display: block; text-align: center; margin-top: 1.5rem;
+            color: #64748b; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover { color: #0ea5e9; }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>Admin Login</h2>
-        <% if (error) { %>
-            <div class="error"><%= error %></div>
-        <% } %>
-        <form action="/admin/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="logo-container">
+                <i class="fa-solid fa-shield-halved logo-icon"></i>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn-submit">Login</button>
-        </form>
+            <h2>Admin Portal</h2>
+            <% if (error) { %>
+                <div class="error"><i class="fa-solid fa-circle-exclamation"></i> <%= error %></div>
+            <% } %>
+            <form action="/admin/login" method="POST">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" required>
+                    <i class="fa-solid fa-user"></i>
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required>
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="password">Password</label>
+                </div>
+                <button type="submit" class="btn-submit">Sign In <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i></button>
+            </form>
+            <a href="/" class="back-link"><i class="fa-solid fa-arrow-left" style="margin-right: 0.3rem;"></i> Back to Website</a>
+        </div>
     </div>
 </body>
 </html>

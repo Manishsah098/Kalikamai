@@ -279,7 +279,7 @@ ul {
 
 @media (max-width: 500px) {
     .logo-text {
-        display: none;
+        font-size: 0.9rem;
     }
 }
 
